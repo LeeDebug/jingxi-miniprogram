@@ -125,15 +125,15 @@
                 <image class='icon' src='/images/icon/chat.png'></image>
                 <view class='icon-text'>客服</view>
             </button>
-            <!-- <view class="left-icon" bindtap='openCartPage'>
+            <view class="left-icon" bindtap='openCartPage'>
                 <text class="cart-count">{{cartGoodsCount}}</text>
                 <image class='icon' src='/images/nav/icon-cart-b.png'></image>
                 <view class='icon-text'>购物车</view>
-            </view> -->
+            </view>
         </view>
         <block wx:if="{{goods.goods_number > 0 && goods.is_on_sale == 1}}">
             <block wx:if="{{goodsNumber > 0}}">
-                <!-- <view class="to-cart-btn" bindtap='addToCart'>加入购物车</view> -->
+                <view class="to-cart-btn" bindtap='addToCart'>加入购物车</view>
                 <view class="to-pay-btn" bindtap='fastToCart'>立即购买</view>
             </block>
             <block wx:if="{{goodsNumber <= 0 }}">

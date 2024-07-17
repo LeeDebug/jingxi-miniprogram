@@ -28,8 +28,16 @@ Page({
     if (res == true) {
       let showType = event.currentTarget.dataset.index;
       wx.setStorageSync('showType', showType);
-      wx.navigateTo({
+      wx.switchTab({
         url: '/pages/ucenter/order-list/index?showType=' + showType,
+      });
+    }
+  },
+  toCartCart: function (e) {
+    let res = util.loginNow();
+    if (res == true) {
+      wx.navigateTo({
+        url: '/pages/cart/cart',
       });
     }
   },

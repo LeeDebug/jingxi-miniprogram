@@ -2,7 +2,7 @@
     <view class='contact-wrap' wx:if="{{showContact == 1}}">
         <button class="contact-btn" session-from='{"nickName":"{{userInfo.nickname}}","avatarUrl":"{{userInfo.avatar}}"}' open-type="contact">
             <image class='icon' src='/images/icon/contact.png'></image>
-            <view class='text'>客服</view>
+            <view class='text'>联系老板</view>
         </button>
     </view>
     <view class="search" bindtap="goSearch">

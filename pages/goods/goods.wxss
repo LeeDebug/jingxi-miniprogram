@@ -561,7 +561,7 @@
 
 .cart-add-box .to-pay-btn {
     height: 110rpx;
-    width: 80%;
+    width: 30%;
     line-height: 100rpx;
     color: #fff;
     background: -webkit-linear-gradient(left, #fdbb43, #ff347d); /* Safari 5.1 - 6.0 */

@@ -348,7 +348,7 @@ Page({
         wx.stopPullDownRefresh() //停止下拉刷新
     },
     openCartPage: function() {
-        wx.switchTab({
+        wx.navigateTo({
             url: '/pages/cart/cart',
         });
     },

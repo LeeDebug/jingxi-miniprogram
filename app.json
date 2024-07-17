@@ -47,6 +47,12 @@
                 "text": "分类"
             },
             {
+                "pagePath": "pages/ucenter/order-list/index",
+                "iconPath": "images/nav/icon-cart-b.png",
+                "selectedIconPath": "images/nav/icon-cart-r.png",
+                "text": "所有订单"
+            },
+            {
                 "pagePath": "pages/cart/cart",
                 "iconPath": "images/nav/icon-cart-b.png",
                 "selectedIconPath": "images/nav/icon-cart-r.png",
