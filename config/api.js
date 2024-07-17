@@ -57,5 +57,4 @@ module.exports = {
   SettingsDetail: ApiRootUrl + 'settings/userDetail',
   UploadAvatar: ApiRootUrl + 'upload/uploadAvatar',
   GetBase64: ApiRootUrl + 'qrcode/getBase64', //获取商品详情二维码
-
 };

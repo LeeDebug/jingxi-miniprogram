@@ -60,5 +60,9 @@
             }
         ]
     },
+    "requiredPrivateInfos": [
+      "chooseAddress",
+      "getLocation"
+    ],
     "sitemapLocation": "sitemap.json"
 }
