@@ -89,6 +89,9 @@ Page({
   },
   onLoad: function (options) {
     this.goAuth();
+    setTimeout(() => {
+      console.log('userInfo:\n', this.data.userInfo)
+    }, 1 * 1000);
   },
   onShow: function () {
     this.getOrderInfo();
