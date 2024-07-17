@@ -53,8 +53,9 @@ page {
     margin-bottom: 24rpx;
     box-sizing: border-box;
     position: relative;
-    background: #fff;
+    background: rgb(0, 210, 255);
     flex-direction: column;
+    border-radius: 40rpx;
 }
 
 .head-wrap {
@@ -62,7 +63,7 @@ page {
     justify-content: space-between;
     align-items: center;
     margin: 0 30rpx;
-    padding: 30rpx 0;
+    padding: 100rpx 0 60rpx 0;
     /* border-bottom: 1rpx solid #f1f1f1; */
 }
 
@@ -131,7 +132,14 @@ page {
 
 .head-wrap .head-l .r .name {
     font-size: 34rpx;
-    color: #192841;
+    color: black;
+    font-weight: 600;
+    margin-right: 10rpx;
+}
+.head-wrap .head-l .r .phone {
+    margin-top: 10rpx;
+    font-size: 24rpx;
+    color: #333;
     font-weight: 500;
     margin-right: 10rpx;
 }
@@ -144,6 +152,85 @@ page {
     transform: rotate(45deg);
 }
 
+/* 增加一个透明的 点，并强制设置高度 */
+.head-bottom-block::after {
+  content: '.';
+  color: transparent;
+  line-height: 150rpx;
+}
+
+/* 余额 + 积分 + 优惠券 */
+.head-info-container {
+  padding: 0rpx 24rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.info-wrap {
+  width: 30%;
+  /* height: 110rpx; */
+  text-align: center;
+  display: inline-block;
+}
+
+.info-number {
+  font-weight: 600;
+}
+
+/* 会员卡片展示 */
+.mumber-container {
+  height: 220rpx;
+}
+
+.mumber-wrap {
+  margin: 40rpx;
+  padding: 30rpx 40rpx 40rpx 40rpx;
+  background-color: white;
+  border-radius: 40rpx;
+  transform: translateY(-150rpx);
+}
+
+.card-row-1 {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.card-row-1 .fl {
+  width: 50%;
+  font-size: 40rpx;
+  font-weight: 600;
+}
+
+.card-row-1 .fr {
+  width: 50%;
+  text-align: right;
+}
+
+.card-row-1 .fr .mumber-qr-code {
+  height: 40rpx;
+  width: 40rpx;
+}
+
+.card-row-2 {
+  margin-top: 40rpx;
+}
+
+.card-row-2 .exp-text {
+  font-size: 46rpx;
+  font-weight: 500;
+}
+
+.card-row-3 {
+  margin-top: 10rpx;
+}
+
+.card-row-3 .exp-extra {
+  font-size: 26rpx;
+  color: #999;
+}
+
+/* 我的订单 */
 .order-container {
     width: 100%;
     background: #fff;
