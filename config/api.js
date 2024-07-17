@@ -1,7 +1,7 @@
 // const ApiRoot = 'http://localhost:8360';
-// const ApiRoot = 'http://127.0.0.1:8360';
+// const ApiRoot = 'http://127.0.0.1:8380'; // 本地代码
 // const ApiRoot = 'http://192.168.0.113:8360';
-const ApiRoot = 'http://82.156.25.59:8360';
+const ApiRoot = 'http://82.156.25.59:8380'; // Tencent 服务器
 const ApiRootUrl = ApiRoot + '/api/'
 
 module.exports = {
