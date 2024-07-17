@@ -24,6 +24,9 @@
         <image src="/images/icon/position-deny.png" class="img"></image>
         <view class="text">没有地址信息</view>
     </view>
+    <view class="wx-btn-wrap" bindtap="syncWxAddress">
+        <view class="btn">同步微信地址</view>
+    </view>
     <view class="btn-wrap" bindtap="addAddress">
         <view class="btn">新增收货地址</view>
     </view>

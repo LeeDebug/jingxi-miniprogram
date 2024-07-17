@@ -202,17 +202,28 @@ page {
 }
 
 
+.wx-btn-wrap {
+  position: fixed;
+  /* bottom: 150rpx; */
+  bottom: 0;
+  right: 0;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .btn-wrap {
     position: fixed;
     bottom: 0;
-    width: 100%;
+    left: 0;
+    width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.btn-wrap .btn {
+.wx-btn-wrap .btn, .btn-wrap .btn {
     width: 100%;
     background: linear-gradient(to right, #ff3456, #ff347d);
     color: #fff;
@@ -220,4 +231,8 @@ page {
     text-align: center;
     height: 110rpx;
     line-height: 100rpx;
+}
+
+.wx-btn-wrap .btn {
+  background: linear-gradient(to right, #00b963, #00b963);
 }
