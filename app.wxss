@@ -1,9 +1,14 @@
 /**app.wxss**/
+
+@import "colorui/main.wxss";
+@import "colorui/icon.wxss";
+
 .container {
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
 }
+
 .hide{
-    display: none;
+  display: none;
 }
