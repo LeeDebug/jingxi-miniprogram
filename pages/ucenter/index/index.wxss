@@ -479,3 +479,11 @@ page {
     border-right: 4rpx solid #ccc;
     transform: rotate(45deg);
 }
+
+/* 常用功能 */
+/* .common-functions {
+  margin: 40rpx;
+  border-radius: 40rpx;
+  padding: 20rpx;
+  background-color: white;
+} */
