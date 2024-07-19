@@ -470,10 +470,10 @@ form {
     border: 1rpx solid #ccc;
     text-align: center;
     border-radius: 6rpx;
-    padding: 8rpx 20rpx;
+    padding: 0rpx 20rpx;
     background: #fff;
-    height: 40rpx;
-    line-height: 40rpx;
+    height: 50rpx;
+    line-height: 50rpx;
     margin-right: 24rpx;
 }
 
@@ -505,10 +505,10 @@ form {
     border: 1rpx solid #ff3456;
     text-align: center;
     border-radius: 6rpx;
-    padding: 8rpx 20rpx;
+    padding: 0rpx 20rpx;
     background: linear-gradient(to right, #ff3456, #ff347d);
-    height: 40rpx;
-    line-height: 40rpx;
+    height: 50rpx;
+    line-height: 50rpx;
     margin-right: 24rpx;
 }
 

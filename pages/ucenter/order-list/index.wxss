@@ -138,9 +138,9 @@ page {
     color: #fff;
     border-radius: 8rpx;
     background: #594d72;
-    height: 30rpx;
-    line-height: 30rpx;
-    padding: 8rpx 20rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+    padding: 0rpx 20rpx;
     font-size: 24rpx;
     margin-right: 20rpx;
 }
@@ -260,11 +260,11 @@ page {
 }
 
 .dele-btn {
-    padding: 8rpx 20rpx;
+    padding: 0rpx 20rpx;
     border-radius: 6rpx;
     font-size: 24rpx;
-    height: 40rpx;
-    line-height: 40rpx;
+    height: 50rpx;
+    line-height: 50rpx;
     margin-right: 24rpx;
     color: #666;
     background: #fff;

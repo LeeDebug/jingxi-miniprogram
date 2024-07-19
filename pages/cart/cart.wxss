@@ -83,8 +83,8 @@ page {
 }
 
 .a-goods .checkbox .checkbox-img{
-    height: 40rpx;
-    width: 40rpx;
+  height: 40rpx;
+  width: 60rpx;
 }
 
 .goods-info {
@@ -243,47 +243,47 @@ button::after {
 } */
 
 .goods-info .text-box .selnum {
-    width: 146rpx;
-    height: 52rpx;
-    padding: 50rpx 0 0 100rpx;
+    width: 300rpx;
+    height: auto;
+    padding: 0 0 0 100rpx;
     display: flex;
     justify-content: space-around;
     align-items: center;
     position: absolute;
-    right: 30rpx;
+    right: 40rpx;
     bottom: 0;
 }
 
 
 .selnum .cut {
-    width: 46rpx;
-    height: 46rpx;
-    font-size: 30rpx;
-    color: #233445;
-    background: #fff;
-    padding: 0;
-    margin: 0;
-    text-align: center;
-    line-height: 40rpx;
-    border-radius: 46rpx;
-    border: 1rpx solid #999;
-    box-sizing: border-box;
-    font-weight: bold;
+  width: 80rpx;
+  height: 46rpx;
+  line-height: 40rpx;
+  font-size: 30rpx;
+  color: #233445;
+  background: #fff;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  border-radius: 46rpx;
+  border: 1rpx solid #999;
+  box-sizing: border-box;
+  font-weight: bold;
 }
 
 .selnum .add {
-    width: 46rpx;
-    height: 46rpx;
-    font-size: 32rpx;
-    color: #fff;
-    padding: 0;
-    margin: 0;
-    text-align: center;
-    line-height: 42rpx;
-    background: linear-gradient(to right, #ff3456, #ff347d);
-    border-radius: 46rpx;
-    box-sizing: border-box;
-    font-weight: bold;
+  width: 80rpx;
+  height: 46rpx;
+  line-height: 46rpx;
+  font-size: 32rpx;
+  color: #fff;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  background: linear-gradient(to right, #ff3456, #ff347d);
+  border-radius: 46rpx;
+  box-sizing: border-box;
+  font-weight: bold;
 }
 
 .selnum .number {
