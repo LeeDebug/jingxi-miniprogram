@@ -57,8 +57,8 @@
       <view class="mumber-wrap">
         <view>
           <view class="card-row-1">
-            <view class='fl'>
-              <text>注册会员</text>
+            <view class='fl' bindtap='toMumberCenterPage'>
+              <text>会员中心(进入)</text>
             </view>
             <view class='fr'>
               <image class='mumber-qr-code' src="/images/icon/qr-code.png"></image>

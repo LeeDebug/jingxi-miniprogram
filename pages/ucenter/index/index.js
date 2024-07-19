@@ -23,6 +23,15 @@ Page({
       });
     }
   },
+  // 前往会员中心
+  toMumberCenterPage: function (e) {
+    let res = util.loginNow();
+    if (res == true) {
+      wx.navigateTo({
+        url: '/pages/ucenter/mumber/index',
+      });
+    }
+  },
   toOrderListTap: function (event) {
     let res = util.loginNow();
     if (res == true) {

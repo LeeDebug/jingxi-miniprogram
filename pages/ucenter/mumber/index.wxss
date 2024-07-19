@@ -1,0 +1,53 @@
+.tower-swiper .tower-item {
+  transform: scale(calc(0.5 + var(--index) / 10));
+  margin-left: calc(var(--left) * 100rpx - 150rpx);
+  z-index: var(--index);
+}
+
+.mumber-top-containerr {
+  /* border: 1px solid red; */
+  /* height: 600rpx; */
+  height: auto;
+}
+
+/* 五个会员卡的背景色 */
+.mumber-background-0 {
+  /* 蓝色 */
+  background: linear-gradient(to right, #ccd9ea, #9abfe3);
+}
+.mumber-background-1 {
+  /* 黄色 */
+  background: linear-gradient(to right, #f5d371, #f5c4a6);
+}
+.mumber-background-2 {
+  /* 橙色 */
+  background: linear-gradient(to right, #f5c4a6, #ff997f);
+}
+.mumber-background-3 {
+  /* 青色 */
+  background: linear-gradient(to right, #c0e4fc, #a1d9f6);
+}
+.mumber-background-4 {
+  /* 色 */
+  /* background: linear-gradient(to right, #232030, #3b354e); */
+  /* background-image: linear-gradient(to right, #000000, #DAA520); */
+  /* background-image: linear-gradient(to right, #000000, #B8860B); */
+  /* background: linear-gradient(to right, #221b10, #DAA520); */
+  /* background: linear-gradient(to right, #221b10, #100f08); */
+  background: linear-gradient(to right, #221b10, #15100A);
+}
+
+/* 步骤条 */
+.mumber-steps-top {
+  height: 120rpx;
+  padding: 40rpx 100rpx;
+  background-color: transparent;
+  font-size: 24rpx;
+}
+
+.mumber-icon {
+  margin: 0 auto;
+  height: 40rpx;
+  width: 40rpx;
+  display: block;
+}
