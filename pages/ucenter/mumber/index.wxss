@@ -51,3 +51,10 @@
   width: 40rpx;
   display: block;
 }
+
+.swiper-container {
+}
+
+.swiper-wrap {
+  border: 1px solid red;
+}
