@@ -2,18 +2,34 @@
   <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
     <image class="avatar" src="{{root + avatarUrl}}"></image>
   </button>
+
   <view class='edit-container'>
-    <view class="a-item">
-      <image class="icon" src="/images/icon/nick.png"></image>
-      <input type="nickname" class="a-input" bindinput="bindinputNickName" bindblur="bindinputNickName" value="{{nickName}}" placeholder="请输入昵称" />
+    <!-- 表单 -->
+    <view class="cu-bar justify-center bg-white">
+      <view class="action sub-title">
+        <text class="text-xl text-bold text-blue" style="letter-spacing: 10rpx;">个 人 信 息</text>
+        <text class="text-ABC text-blue">infomation</text>
+        <!-- last-child选择器-->
+      </view>
     </view>
-    <view class="a-item">
-      <image class="icon" src="/images/icon/receiver.png"></image>
-      <input class='a-input' bindinput="bindinputName" bindblur="bindinputName" placeholder='请输入姓名' value="{{name}}"></input>
+    <!-- 昵称 -->
+    <view class="cu-form-group margin-top">
+      <text class="cuIcon-title text-blue margin-right"></text>
+      <view class="title">昵 称</view>
+      <input type="nickname" bindinput="bindinputNickName" bindblur="bindinputNickName" value="{{nickName}}" placeholder="请输入昵称"></input>
     </view>
-    <view class="a-item">
-      <image class="icon" src="/images/icon/mobile.png"></image>
-      <input class='a-input' bindinput="mobilechange" bindblur="mobilechange" value="{{mobile}}" placeholder='请输入手机'></input>
+    <!-- 真实姓名 -->
+    <view class="cu-form-group">
+      <text class="cuIcon-title text-blue margin-right"></text>
+      <view class="title">姓 名</view>
+      <input bindinput="bindinputName" bindblur="bindinputName" value="{{name}}" placeholder="请输入真实姓名（可留空）"></input>
+    </view>
+    <!-- 手机号 -->
+    <view class="cu-form-group">
+      <text class="cuIcon-title text-blue margin-right"></text>
+      <view class="title">手 机</view>
+      <input placeholder="请输入您的手机号码"></input>
+      <button class="autoGetPhone" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" bindinput="mobilechange" bindblur="mobilechange" value="{{mobile}}" class="cu-btn bg-green shadow">自动获取</button>
     </view>
   </view>
   <view class='wrap-btn'>

@@ -104,3 +104,6 @@ page {
     font-size: 28rpx;
     font-weight: 500;
 }
+
+/* 自动获取手机号 */
+/* .autoGetPhone {} */

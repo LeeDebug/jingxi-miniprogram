@@ -10,6 +10,33 @@ Page({
     hasAvatar: 0,
     root: api.ApiRoot
   },
+
+  onLoad: function (options) {
+    this.getSettingsDetail();
+  },
+
+  // 获取个人信息
+  getSettingsDetail() {
+    let that = this;
+    util.request(api.SettingsDetail).then(function (res) {
+      if (res.errno === 0) {
+        that.setData({
+          name: res.data.name,
+          mobile: res.data.mobile,
+          nickName: res.data.nickname,
+          hasAvatar: 0
+        });
+        if (res.data.avatar != '') {
+          that.setData({
+            avatarUrl: res.data.avatar,
+            hasAvatar: 1
+          })
+        }
+      }
+    });
+  },
+
+  // 选择头像
   onChooseAvatar(e) {
     const {
       avatarUrl
@@ -39,46 +66,42 @@ Page({
       }
     })
   },
-  mobilechange(e) {
-    let mobile = e.detail.value;
-    this.setData({
-      mobile: mobile,
-    });
-  },
+
+  // 修改昵称
   bindinputNickName(event) {
     let nickName = event.detail.value;
     this.setData({
       nickName: nickName,
     });
   },
+
+  // 修改姓名
   bindinputName(event) {
     let name = event.detail.value;
     this.setData({
       name: name,
     });
   },
-  getSettingsDetail() {
-    let that = this;
-    util.request(api.SettingsDetail).then(function (res) {
-      if (res.errno === 0) {
-        that.setData({
-          name: res.data.name,
-          mobile: res.data.mobile,
-          nickName: res.data.nickname,
-          hasAvatar: 0
-        });
-        if (res.data.avatar != '') {
-          that.setData({
-            avatarUrl: res.data.avatar,
-            hasAvatar: 1
-          })
-        }
-      }
+
+  // 获取手机号码
+  getPhoneNumber (e) {
+    wx.showToast({
+      title: '正在开发中...',
+      icon: 'error'
+    })
+    // console.log(e.detail.code)  // 动态令牌
+    // console.log(e.detail.errMsg) // 回调信息（成功失败都会返回）
+    // console.log(e.detail.errno)  // 错误码（失败时返回）
+  },
+  // 修改手机号
+  mobilechange(e) {
+    let mobile = e.detail.value;
+    this.setData({
+      mobile: mobile,
     });
   },
-  onLoad: function (options) {
-    this.getSettingsDetail();
-  },
+
+  // 保存个人信息
   saveInfo() {
     let name = this.data.name;
     let mobile = this.data.mobile;
@@ -110,4 +133,5 @@ Page({
       }
     });
   },
+
 })
