@@ -1,56 +1,41 @@
-<view class="container">
-  <view class="userinfo">
-    <view class='head-wrap' wx:if="{{hasUserInfo == false}}" bindtap='goAuth'>
-      <view class="no-login-avatar">
-        <view class='no-avatar'>
-          <image class='avatar' src="/images/icon/default_avatar_big.png"></image>
-        </view>
-        <view class='btn-login'>点我登录</view>
-      </view>
+<scroll-view scroll-y class="scrollPage">
+  <view>
+    <!-- 未登录 -->
+    <view wx:if="{{hasUserInfo == false}}" class="UCenter-bg">
+      <button class="cu-btn bg-red margin-tb-sm lg" bindtap="goAuth">点击登录</button>
     </view>
-
-    <!-- 头像 + 微信名 + 右边箭头 -->
-    <view class='head-wrap' wx:else bindtap='goProfile'>
-      <view class="head-l">
-        <view class='l'>
-          <image class='avatar' src="{{root + userInfo.avatar}}"></image>
-        </view>
-        <view class='r'>
-          <view class='t'>
-            <view class='name'>{{userInfo.nickname}}</view>
-            <view class='phone'>手机号（暂未获取）</view>
-          </view>
-        </view>
+    <!-- 登录后 -->
+    <view wx:else class="UCenter-bg">
+      <image src="{{root + userInfo.avatar}}" class="avatar" mode="widthFix" bindtap='goProfile'></image>
+      <view class="text-xl" bindtap='goProfile'>
+        {{ userInfo.nickname }}
+        <!-- <text class="text-df">v2.0</text> -->
       </view>
-      <view class="head-r">
-        <view class="arrow"></view>
-      </view>
+      <!-- <view class="margin-top-sm">
+        <text>更多信息...</text>
+      </view> -->
+      <!-- 波浪动画 -->
+      <image src="https://raw.githubusercontent.com/weilanwl/ColorUI/master/demo/images/wave.gif" mode="scaleToFill" class="gif-wave"></image>
     </view>
+  </view>
 
-    <!-- 头像下面的一行按钮 -->
-    <view class='head-info-container'>
-      <view class='info-wrap' data-index='1' bindtap='toOrderListTap'>
-        <view>
-          <text class="info-number">{{ '10.00' }}</text>
-        </view>
-        <text class='order-txt'>余额</text>
-      </view>
-      <view class='info-wrap' data-index='2' bindtap='toOrderListTap'>
-        <view>
-          <text class="info-number">{{ '798.00' }}</text>
-        </view>
-        <text class='order-txt'>积分</text>
-      </view>
-      <view class='info-wrap' data-index='3' bindtap='toOrderListTap'>
-        <view>
-          <text class="info-number">{{ '8' }}</text>
-        </view>
-        <text class='order-txt'>优惠券</text>
-      </view>
+  <!-- 卡片下方的三个数据 -->
+  <view class="padding flex text-center text-grey bg-white shadow-warp">
+    <view class="flex flex-sub flex-direction solid-right">
+      <view class="text-xxl text-orange">45.00</view>
+      <view class="margin-top-sm">
+        <text class="cuIcon-attentionfill"></text> 余额</view>
     </view>
-
-    <!-- 占位符，不可删除 -->
-    <view class="head-bottom-block"></view>
+    <view class="flex flex-sub flex-direction solid-right">
+      <view class="text-xxl text-blue">798.00</view>
+      <view class="margin-top-sm">
+        <text class="cuIcon-favorfill"></text> 积分</view>
+    </view>
+    <view class="flex flex-sub flex-direction">
+      <view class="text-xxl text-green">6</view>
+      <view class="margin-top-sm">
+        <text class="cuIcon-fork"></text> 优惠券</view>
+    </view>
   </view>
 
   <view class="mumber-container">
@@ -79,63 +64,45 @@
     </view>
   </view>
 
-  <!-- <ad unit-id="adunit-89ae0a0b6860dc9f" ad-type="grid" grid-opacity="0.8" grid-count="5" ad-theme="white"></ad> -->
-
-  <view class="li-wrap">
-    <view class='list header' data-index='0' bindtap='toOrderListTap'>
+  <!-- 常用功能 -->
+  <view class="cu-list menu card-menu margin-top-lg margin-bottom-xl shadow-lg radius">
+    <view class="cu-item">
       <view class='top-title'>
         <view class='left-line'></view>
         <view class='text'>常用功能</view>
       </view>
     </view>
-    <view class="list" bindtap="toCartCart">
-      <view class="list-l">
-        <view class="icon">
-          <image class="img" src="/images/icon/cart-empty.png"></image>
-        </view>
-        <view class="text">购物车</view>
+    <view class="cu-item arrow">
+      <view class="content" bindtap="toCartCart">
+        <text class="cuIcon-github text-grey"></text>
+        <text class="text-grey">购物车</text>
       </view>
-      <view class="arrow"></view>
     </view>
-    <view class="list" bindtap="toAddressList">
-      <view class="list-l">
-        <view class="icon">
-          <image class="img" src="/images/icon/icon-address-r.png"></image>
-        </view>
-        <view class="text">地址管理</view>
+    <view class="cu-item arrow">
+      <view class="content" bindtap="toAddressList">
+        <text class="cuIcon-github text-grey"></text>
+        <text class="text-grey">地址管理</text>
       </view>
-      <view class="arrow"></view>
     </view>
-  </view>
-
-  <view class="li-wrap">
-    <view class="list" bindtap="toFootprint">
-      <view class="list-l">
-        <view class="icon">
-          <image class="img" src="/images/icon/icon-footprint-r.png"></image>
-        </view>
-        <view class="text">我的足迹</view>
+    <view class="cu-item arrow">
+      <view class="content" bindtap="toFootprint">
+        <text class="cuIcon-appreciatefill text-red"></text>
+        <text class="text-grey">我的足迹</text>
       </view>
-      <view class="arrow"></view>
     </view>
-    <button class="contact-btn" session-from='{"nickName":"{{userInfo.nickname}}","avatarUrl":"{{userInfo.avatar}}"}' open-type="contact">
-      <view class="list-l">
-        <view class="icon">
-          <image class="img" src="/images/icon/icon-service-r.png"></image>
-        </view>
-        <view class="text">联系客服</view>
-      </view>
-      <view class="arrow"></view>
-    </button>
-    <view class="list" bindtap="toAbout">
-      <view class="list-l">
-        <view class="icon">
-          <image class="img" src="/images/icon/icon-about-r.png"></image>
-        </view>
-        <view class="text">关于我们</view>
-      </view>
-      <view class="arrow"></view>
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages/ucenter/about/index" hover-class="none">
+        <text class="cuIcon-github text-grey"></text>
+        <text class="text-grey">关于我们</text>
+      </navigator>
     </view>
+    <!-- 最不常用 -->
+    <!-- <view class="cu-item arrow">
+      <button class="cu-btn content" open-type="feedback">
+        <text class="cuIcon-writefill text-cyan"></text>
+        <text class="text-grey">意见反馈</text>
+      </button>
+    </view> -->
   </view>
 
   <view class="company">
@@ -145,4 +112,5 @@
     </view>
     <view class="tip">一口轻食，一口鲸禧</view>
   </view>
-</view>
+
+</scroll-view>

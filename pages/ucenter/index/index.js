@@ -58,11 +58,6 @@ Page({
       });
     }
   },
-  toAbout: function () {
-    wx.navigateTo({
-      url: '/pages/ucenter/about/index',
-    });
-  },
   toFootprint: function (e) {
     let res = util.loginNow();
     if (res == true) {
