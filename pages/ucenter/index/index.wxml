@@ -39,10 +39,10 @@
   </view>
 
   <view class="mumber-container">
-    <view class="mumber-wrap">
+    <view class="mumber-wrap" bindtap='toMumberCenterPage'>
       <view>
         <view class="card-row-1">
-          <view class='fl' bindtap='toMumberCenterPage'>
+          <view class='fl'>
             <text>鲸禧之家(会员中心)</text>
           </view>
           <view class='fr'>
