@@ -74,6 +74,16 @@ Page({
       nickName: nickName,
     });
   },
+  // 用户昵称审核完毕后触发
+  bindnicknamereview(event) {
+    console.log('event:\n', event)
+    // 必须是在用户已经授权的情况下调用
+    wx.getUserInfo({
+      success: function(res) {
+        console.log('userInfo:\n', res)
+      }
+    })
+  },
 
   // 修改姓名
   bindinputName(event) {

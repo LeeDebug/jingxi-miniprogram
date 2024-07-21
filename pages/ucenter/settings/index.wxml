@@ -16,7 +16,7 @@
     <view class="cu-form-group margin-top">
       <text class="cuIcon-title text-blue margin-right"></text>
       <view class="title">昵 称</view>
-      <input type="nickname" bindinput="bindinputNickName" bindblur="bindinputNickName" value="{{nickName}}" placeholder="请输入昵称"></input>
+      <input type="nickname" bindinput="bindinputNickName" bindblur="bindinputNickName" bindnicknamereview="bindnicknamereview" value="{{nickName}}" placeholder="请输入昵称"></input>
     </view>
     <!-- 真实姓名 -->
     <view class="cu-form-group">
