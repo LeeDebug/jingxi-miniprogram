@@ -21,7 +21,7 @@
           <image class="cu-avatar round lg" src="{{ avatar }}"></image>
           <!-- 底部 右侧 信息介绍-->
           <view class="content flex-sub">
-            <view class="text-grey">{{ item.name }}</view>
+            <view class="text-grey">{{ item.name }}（如何设置分享？？？）</view>
             <view class="text-gray text-sm flex justify-between">
               {{ item.release_time }}
               <view class="text-gray text-sm">
