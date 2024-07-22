@@ -127,7 +127,7 @@ page {
   width: 10rpx;
   height: 30rpx;
   margin-right: 20rpx;
-  background: #12addb;
+  /* background: #12addb; */
   border-radius: 20rpx;
 }
 

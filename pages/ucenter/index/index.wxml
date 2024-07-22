@@ -68,7 +68,7 @@
   <view class="cu-list menu card-menu margin-top-lg margin-bottom-xl shadow-lg radius">
     <view class="cu-item">
       <view class='top-title'>
-        <view class='left-line'></view>
+        <view class='left-line theme-background-color'></view>
         <view class='text'>常用功能</view>
       </view>
     </view>

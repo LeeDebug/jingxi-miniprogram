@@ -1,19 +1,52 @@
 // pages/seasonal-menu/index.js
+
+var util = require('../../utils/util.js');
+var api = require('../../config/api.js');
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    isCard: false,
+    avatar: 'https://i.imgur.com/ZrXVNx2.png', // 老板头像
+    seasonalMenuList: [],
+    menuImages: [],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    setTimeout(() => {
+      this.getSeasonalMenuList();
+    }, 0);
   },
+
+  // 获取菜单列表
+  getSeasonalMenuList() {
+    util.request(api.SeasonalMenuList).then((res) => {
+      if (res.errno === 0) {
+        const list = res.data
+        list.map(v => v.release_time = util.formatTime(new Date(v.release_time)))
+        // console.log('SeasonalMenuList => list:\n', list)
+        this.setData({
+          seasonalMenuList: list,
+          menuImages: JSON.parse(JSON.stringify(list)).map(v => v.image_url)
+        })
+      }
+    });
+  },
+  
+  previewImage(e) {
+    let current = e.currentTarget.dataset.src;
+    let that = this;
+    wx.previewImage({
+        current: current, // 当前显示图片的http链接
+        urls: that.data.menuImages // 需要预览的图片http链接列表
+    })
+},
 
   /**
    * 生命周期函数--监听页面初次渲染完成

@@ -1,2 +1,39 @@
-<!--pages/seasonal-menu/index.wxml-->
-展示时令菜单
+<view wx:if="{{ seasonalMenuList.length == 0}}">
+  <view class="cu-load bg-blue {{!isLoad?'loading':'over'}}">菜单正在</view>
+</view>
+
+<view wx:else>
+
+  <view wx:for="{{seasonalMenuList}}" wx:key="id" class="cu-card case {{isCard?'no-card':''}}">
+    <view class="cu-item shadow">
+      <!-- 卡片上方大图片 -->
+      <view class="image">
+        <image wx:if="{{ item.type == 'image' }}" src="{{ item.image_url }}" data-src="{{item.image_url}}" bindtap="previewImage" mode="widthFix"></image>
+        <view class="cu-tag bg-blue">{{ item.date }}</view>
+        <view class="cu-bar bg-shadeBottom">
+          <text class="text-cut">{{ item.desc }}</text>
+        </view>
+      </view>
+      <!-- 卡片底部内容 -->
+      <view class="cu-list menu-avatar">
+        <view class="cu-item">
+          <!-- 底部 左侧 头像 -->
+          <image class="cu-avatar round lg" src="{{ avatar }}"></image>
+          <!-- 底部 右侧 信息介绍-->
+          <view class="content flex-sub">
+            <view class="text-grey">{{ item.name }}</view>
+            <view class="text-gray text-sm flex justify-between">
+              {{ item.release_time }}
+              <view class="text-gray text-sm">
+                <text class="cuIcon-attentionfill margin-lr-xs"></text> 99+
+                <text class="cuIcon-appreciatefill margin-lr-xs"></text> 99+
+                <text class="cuIcon-messagefill margin-lr-xs"></text> 99+
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>

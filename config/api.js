@@ -10,6 +10,8 @@ module.exports = {
   AuthLoginByWeixin: ApiRootUrl + 'auth/loginByWeixin', //微信登录
   // 手机号
   // AuthLoginByWeixin: ApiRootUrl + 'auth/loginByWeixin', //微信登录
+  // 时令菜单
+  SeasonalMenuList: ApiRootUrl + 'seasonal/list', // 获取菜单列表
   // 首页
   IndexUrl: ApiRootUrl + 'index/appInfo', //首页数据接口
   // 分类

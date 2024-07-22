@@ -70,7 +70,7 @@ page {
 }
 
 .catalog .nav .item.active {
-    color: #ff3456;
+    color: var(--theme-color);
     font-size: 32rpx;
     font-weight: 500;
 }

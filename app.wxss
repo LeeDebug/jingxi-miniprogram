@@ -3,6 +3,11 @@
 @import "colorui/main.wxss";
 @import "colorui/icon.wxss";
 
+page {
+  --theme-color: #12addb;
+  --font-size: 16px;
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -11,4 +16,13 @@
 
 .hide{
   display: none;
+}
+
+/* 主题色相关 */
+.theme-color {
+  color: var(--theme-color);
+}
+
+.theme-background-color {
+  background: var(--theme-color);
 }
