@@ -23,6 +23,14 @@ Page({
       });
     }
   },
+  togoCouponsPage() {
+    let res = util.loginNow();
+    if (res == true) {
+      wx.navigateTo({
+        url: '/pages/ucenter/coupons/index',
+      });
+    }
+  },
   // 前往会员中心
   toMumberCenterPage: function (e) {
     let res = util.loginNow();

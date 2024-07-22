@@ -1,0 +1,11 @@
+<view wx:if="{{ couponsList.length == 0}}">
+  <view class="cu-load bg-blue {{!isLoad?'loading':'over'}}">优惠券正在</view>
+</view>
+
+<view wx:else>
+
+  <view wx:for="{{couponsList}}" wx:key="id" class="coupons-show-item">
+    <coupons-show coupon="{{ item }}" bindgetCoupon="getCoupon"></coupons-show>
+  </view>
+
+</view>

@@ -1,0 +1,5 @@
+/* pages/ucenter/coupons/index.wxss */
+
+.coupons-show-item {
+  margin-top: 40rpx;
+}

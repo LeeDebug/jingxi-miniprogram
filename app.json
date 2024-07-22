@@ -21,7 +21,9 @@
     "pages/ucenter/footprint/index",
     "pages/payResult/payResult",
     "pages/payOffline/index",
-    "pages/ucenter/mumber/index"
+    "pages/ucenter/mumber/index",
+    "pages/ucenter/coupons/index",
+    "components/coupons-show/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

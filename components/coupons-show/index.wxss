@@ -1,0 +1,89 @@
+/* components/coupons-show/index.wxss */
+
+/* 整个卡片 */
+.coupon-card {
+  margin: 0 40rpx;
+  height: 200rpx;
+  /* padding: 20rpx; */
+  display: flex;
+  background-color: white;
+  border-radius: 20rpx;
+  -webkit-mask: radial-gradient(circle at 30rpx 30rpx, #0000 20rpx, red 0); 
+  -webkit-mask-position: 460rpx -30rpx;
+  /* -webkit-mask-size: 50%; */
+}
+
+/* 左边 图片封面 */
+.coupon-poster {
+  margin: 20rpx;
+  width: 160rpx;
+  height: 160rpx;
+  display: flex;
+  align-items: center;
+  /* background-color: gainsboro; */
+  border: 1px solid gainsboro;
+}
+
+.coupon-poster image {
+  margin: 0 auto;
+  width: 120rpx;
+  height: 120rpx;
+}
+
+/* 中间 文字内容 */
+.coupon-content {
+  margin: 20rpx 20rpx 20rpx 0;
+  width: calc(100% - (160rpx + 20rpx) - (200rpx + 1rpx));
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.content-title {}
+
+.content-numbers {
+  font-size: 22rpx;
+  color: gray;
+}
+
+.content-cost {
+}
+
+/* 右边 折扣价格 */
+.coupon-discount {
+  padding: 20rpx 0;
+  width: 200rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #0066ff;
+  background-color: rgba(18, 173, 219, 0.2); /* #12addb; */
+  border-top-right-radius: inherit;
+  border-bottom-right-radius: inherit;
+  border-left: 1rpx dashed #999;
+}
+
+.discount-price {
+  font-size: 50rpx;
+  font-weight: 600;
+}
+
+.discount-type {
+  margin-top: 10rpx;
+  font-size: 20rpx;
+  color: gray;
+  letter-spacing: 6rpx;
+}
+
+.discount-btn {
+  margin-top: 10rpx;
+  width: 120rpx;
+  height: 50rpx;
+  padding: 0;
+  font-size: 20rpx;
+  background-color: transparent;
+  color: #0066ff;
+  border: 0px solid var(--theme-color);
+  letter-spacing: 4rpx;
+  text-align: center;
+}

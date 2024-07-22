@@ -24,17 +24,20 @@
     <view class="flex flex-sub flex-direction solid-right">
       <view class="text-xxl text-orange">45.00</view>
       <view class="margin-top-sm">
-        <text class="cuIcon-attentionfill"></text> 余额</view>
+        <text class="cuIcon-attentionfill"></text> 余额
+      </view>
     </view>
     <view class="flex flex-sub flex-direction solid-right">
       <view class="text-xxl text-blue">798.00</view>
       <view class="margin-top-sm">
-        <text class="cuIcon-favorfill"></text> 积分</view>
+        <text class="cuIcon-favorfill"></text> 积分
+      </view>
     </view>
-    <view class="flex flex-sub flex-direction">
+    <view class="flex flex-sub flex-direction" bindtap="togoCouponsPage">
       <view class="text-xxl text-green">6</view>
       <view class="margin-top-sm">
-        <text class="cuIcon-fork"></text> 优惠券</view>
+        <text class="cuIcon-fork"></text> 优惠券
+      </view>
     </view>
   </view>
 

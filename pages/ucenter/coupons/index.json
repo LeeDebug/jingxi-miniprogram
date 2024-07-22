@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "coupons-show": "/components/coupons-show/index"
+  }
+}
