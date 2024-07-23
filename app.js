@@ -43,5 +43,11 @@ App({
       avatar: 'http://lucky-icon.meiweiyuxian.com/hio/default_avatar_big.png'
     },
     token: '',
+  },
+  // 前往 时令菜单 页面
+  goSeasonalPage() {
+    wx.switchTab({
+      url: '/pages/seasonal-menu/index'
+    })
   }
 })

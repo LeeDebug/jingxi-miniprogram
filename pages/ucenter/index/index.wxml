@@ -21,22 +21,22 @@
 
   <!-- 卡片下方的三个数据 -->
   <view class="padding flex text-center text-grey bg-white shadow-warp">
-    <view class="flex flex-sub flex-direction solid-right">
+    <view class="flex flex-sub flex-direction solid-right" bindtap="togoBalancePage">
       <view class="text-xxl text-orange">45.00</view>
       <view class="margin-top-sm">
-        <text class="cuIcon-attentionfill"></text> 余额
+        <text class="cuIcon-moneybag"></text> 余额
       </view>
     </view>
-    <view class="flex flex-sub flex-direction solid-right">
+    <view class="flex flex-sub flex-direction solid-right" bindtap="togoPointsPage">
       <view class="text-xxl text-blue">798.00</view>
       <view class="margin-top-sm">
-        <text class="cuIcon-favorfill"></text> 积分
+        <text class="cuIcon-favor"></text> 积分
       </view>
     </view>
     <view class="flex flex-sub flex-direction" bindtap="togoCouponsPage">
       <view class="text-xxl text-green">{{ userInfo.coupon_count || 0 }}</view>
       <view class="margin-top-sm">
-        <text class="cuIcon-fork"></text> 优惠券
+        <text class="cuIcon-ticket"></text> 优惠券
       </view>
     </view>
   </view>

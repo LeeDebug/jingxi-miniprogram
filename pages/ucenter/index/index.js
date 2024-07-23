@@ -23,6 +23,28 @@ Page({
       });
     }
   },
+
+  // 前往 我的钱包
+  togoBalancePage() {
+    let res = util.loginNow();
+    if (res == true) {
+      wx.navigateTo({
+        url: '/pages/ucenter/balance/index',
+      });
+    }
+  },
+
+  // 前往 积分中心
+  togoPointsPage() {
+    let res = util.loginNow();
+    if (res == true) {
+      wx.navigateTo({
+        url: '/pages/ucenter/points/index',
+      });
+    }
+  },
+
+  // 前往 我的优惠券
   togoCouponsPage() {
     let res = util.loginNow();
     if (res == true) {

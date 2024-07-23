@@ -23,7 +23,9 @@
     "pages/payOffline/index",
     "pages/ucenter/mumber/index",
     "pages/ucenter/coupons/index",
-    "components/coupons-show/index"
+    "components/coupons-show/index",
+    "pages/ucenter/points/index",
+    "pages/ucenter/balance/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

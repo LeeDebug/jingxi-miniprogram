@@ -1,0 +1,38 @@
+/* pages/ucenter/balance/index.wxss */
+
+.balance-header {
+  display: flex;
+  margin: 40rpx;
+  height: 200rpx;
+  padding: 40rpx;
+  background-color: white;
+  border-bottom: 2px solid #ddd;
+  border-radius: 20rpx;
+}
+
+.header-left {
+  width: calc(100% - 320rpx);
+  font-weight: 600;
+}
+
+.left-point {
+  font-size: 50rpx;
+}
+
+.header-right {
+  width: 320rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+.balance-body {
+  margin: 0 40rpx;
+  padding: 100rpx 0;
+  height: 500rpx;
+  font-size: 40rpx;
+  color: #999;
+  text-align: center;
+  background-color: white;
+  border-radius: 20rpx;
+}

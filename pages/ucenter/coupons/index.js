@@ -1,5 +1,6 @@
 // pages/ucenter/coupons/index.js
 
+const app = getApp()
 var util = require('../../../utils/util.js');
 var api = require('../../../config/api.js');
 
@@ -69,11 +70,7 @@ Page({
     this.getCouponsList({ coupon_type: this.data.curTabIdx });
   },
 
-  // 返回上一页
-  goHome() {
-    wx.switchTab({
-      url: '/pages/seasonal-menu/index'
-    })
-  }
+  // 前往 时令菜单 页面
+  goSeasonalPage: app.goSeasonalPage,
 
 })
