@@ -34,7 +34,7 @@
       </view>
     </view>
     <view class="flex flex-sub flex-direction" bindtap="togoCouponsPage">
-      <view class="text-xxl text-green">6</view>
+      <view class="text-xxl text-green">{{ userInfo.coupon_count || 0 }}</view>
       <view class="margin-top-sm">
         <text class="cuIcon-fork"></text> 优惠券
       </view>

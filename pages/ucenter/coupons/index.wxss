@@ -1,5 +1,15 @@
 /* pages/ucenter/coupons/index.wxss */
 
+.coupons-list-content {
+}
+
 .coupons-show-item {
   margin-top: 40rpx;
+}
+
+.list-empty {
+  padding: 200rpx 0;
+  font-size: 40rpx;
+  color: #999;
+  text-align: center;
 }

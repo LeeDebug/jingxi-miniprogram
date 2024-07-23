@@ -41,6 +41,10 @@
   font-weight: 600;
 }
 
+.price-text {
+  font-size: 40rpx;
+}
+
 .discount-type {
   margin-top: 10rpx;
   font-size: 24rpx;
@@ -59,7 +63,9 @@
   justify-content: space-between;
 }
 
-.content-title {}
+.content-title {
+  font-size: 34rpx;
+}
 
 .content-numbers {
   font-size: 22rpx;
@@ -103,6 +109,7 @@
   color: #ffa792;
   background-color: #ffedec;
   border-radius: 10rpx;
+  overflow: hidden;
 }
 
 /* 下方 优惠券规则 */

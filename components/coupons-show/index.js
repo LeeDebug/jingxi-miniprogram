@@ -19,7 +19,7 @@ Component({
    */
   data: {
     // 规则 展开状态
-    showAllRules: true,
+    showAllRules: false, // 默认折叠
   },
 
   /**

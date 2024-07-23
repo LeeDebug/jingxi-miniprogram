@@ -9,6 +9,15 @@ Page({
    * 页面的初始数据
    */
   data: {
+    // Tab区分：所有优惠券、待使用、已使用、已过期
+    couponsTypeList: [
+      { name: '所有' },
+      { name: '待使用' },
+      { name: '已使用' },
+      { name: '已过期' }
+    ],
+    // 默认: 待使用
+    curTabIdx: 1,
     couponsList: []
   },
 
@@ -17,13 +26,18 @@ Page({
    */
   onLoad(options) {
     setTimeout(() => {
-      this.getCouponsList();
+      this.getCouponsList({ coupon_type: this.data.curTabIdx });
     }, 0);
   },
 
   // 获取菜单列表
-  getCouponsList() {
-    util.request(api.GetAllCoupons).then((res) => {
+  getCouponsList(query) {
+    wx.showLoading({
+      title: '加载中...'
+    })
+    util.request(api.UserCouponsList, {
+      coupon_type: query.coupon_type
+    }, 'GET').then((res) => {
       if (res.errno === 0) {
         const list = res.data
         // console.log('couponsList => list:\n', list)
@@ -32,6 +46,7 @@ Page({
           // menuImages: JSON.parse(JSON.stringify(list)).map(v => v.image_url)
         })
       }
+      wx.hideLoading()
     });
   },
 
@@ -46,52 +61,19 @@ Page({
     })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
+  // 切换卡片
+  tabSelect(e) {
+    this.setData({
+      curTabIdx: e.currentTarget.dataset.id
+    })
+    this.getCouponsList({ coupon_type: this.data.curTabIdx });
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
+  // 返回上一页
+  goHome() {
+    wx.switchTab({
+      url: '/pages/seasonal-menu/index'
+    })
   }
+
 })

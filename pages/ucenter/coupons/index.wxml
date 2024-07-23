@@ -1,11 +1,36 @@
-<view wx:if="{{ couponsList.length == 0}}">
+<!-- <view wx:if="{{ couponsList.length == 0}}">
   <view class="cu-load bg-blue {{!isLoad?'loading':'over'}}">优惠券正在</view>
-</view>
+</view> -->
 
-<view wx:else>
+<!-- <view wx:else> -->
+<view>
 
-  <view wx:for="{{couponsList}}" wx:key="id" class="coupons-show-item">
-    <coupons-show coupon="{{ item }}" bindgetCoupon="getCoupon"></coupons-show>
+  <!-- Tab区分：所有优惠券、待使用、已使用、已过期 -->
+  <scroll-view scroll-x class="bg-white nav">
+    <view class="flex text-center">
+      <view
+        class="cu-item flex-sub {{index==curTabIdx?'text-blue cur':''}}"
+        wx:for="{{couponsTypeList}}" wx:key="index"
+        bindtap="tabSelect"
+        data-id="{{index}}"
+      >
+        {{ item.name }}
+      </view>
+    </view>
+  </scroll-view>
+
+  <!-- 列表内容 -->
+  <view class="coupons-list-content">
+
+    <view wx:for="{{couponsList}}" wx:key="id" class="coupons-show-item">
+      <coupons-show coupon="{{ item }}" bindgetCoupon="getCoupon"></coupons-show>
+    </view>
+
+    <view wx:if="{{ couponsList.length == 0}}" class="list-empty">
+      <view>暂无数据</view>
+      <button class="cu-btn bg-blue round margin-top-lg" bindtap="goHome">马上去逛逛</button>
+    </view>
+
   </view>
 
 </view>

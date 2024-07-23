@@ -10,28 +10,50 @@
     </view> -->
 
     <view class="coupon-discount">
-      <view class="discount-price">￥45</view>
-      <view class="discount-type">无门槛</view>
+      <view class="discount-price">
+        <!-- 比例 折扣 -->
+        <view wx:if="{{ coupon.discount_type == 'percentage' }}">
+          {{ coupon.discount_value * 10 }} <text class="price-text">折</text>
+        </view>
+        <!-- 固定 抵扣 -->
+        <view wx:if="{{ coupon.discount_type == 'fixed' }}">
+          <text class="price-text">￥</text>{{ coupon.discount_value }}
+        </view>
+      </view>
+      <view class="discount-type">
+        <!-- 比例 折扣 -->
+        <view wx:if="{{ coupon.discount_type == 'percentage' }}">折扣券</view>
+        <!-- 固定 抵扣 -->
+        <view wx:if="{{ coupon.discount_type == 'fixed' }}">无门槛券</view>
+      </view>
     </view>
 
     <view class="coupon-content">
-      <view class="content-title">【鲸禧福利】45元无门槛优惠券全场通用</view>
-      <view class="content-numbers">359人已领取</view>
+      <view class="content-title">
+        <view>{{ coupon.description }}</view>
+        <view style="font-size: 24rpx;">券码：{{ coupon.code }}</view>
+      </view>
+      <view class="content-numbers">{{ coupon.used_count + 100}} 人已领取</view>
       <!-- <view class="content-cost">￥1324</view> -->
     </view>
 
     <view class="coupon-operate">
       <button class="operate-btn" bindtap="handleGetCoupon" disabled="{{ !coupon.canGet }}">
-        {{ coupon.canGet ? '立即领取' : '稍后再试' }}
+        {{ coupon.canGet ? '立即领取' : '已领取' }}
       </button>
-      <view class="operate-tag" wx:if="{{ coupon.canGet }}">快过期</view>
+      <view class="operate-tag" wx:if="{{ coupon.canGet }}">
+        即将过期
+        <!-- {{ coupon.end_date }} -->
+      </view>
     </view>
   
   </view>
 
   <!-- 下方 优惠券规则 -->
   <view class="coupon-rules">
-    <view class="rules-text {{ showAllRules ? 'show-all-rules' : '' }}">券的来源：老用户回归专享券，一张订单只能使用一张；并且记得我们去看都没看完前面克莱德曼两块钱</view>
+    <view class="rules-text {{ showAllRules ? 'show-all-rules' : '' }}">
+      {{ coupon.rules }}
+    </view>
     <view class="rules-toggle">
       <text class="{{ showAllRules ? 'cuIcon-toggle-roate-180' : 'cuIcon-toggle' }}" bindtap="handleToggleRules"></text>
     </view>
