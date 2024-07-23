@@ -18,7 +18,8 @@ Component({
    * 组件的初始数据
    */
   data: {
-
+    // 规则 展开状态
+    showAllRules: true,
   },
 
   /**
@@ -29,6 +30,13 @@ Component({
       this.triggerEvent('getCoupon', {
         coupon: this.properties.coupon
       })
-    }
+    },
+
+    // 展开规则 or 折叠规则
+    handleToggleRules() {
+      this.setData({
+        showAllRules: !this.data.showAllRules
+      })
+    },
   }
 })
