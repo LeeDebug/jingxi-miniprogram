@@ -13,8 +13,9 @@ module.exports = {
   // 时令菜单
   SeasonalMenuList: ApiRootUrl + 'seasonal/list', // 获取菜单列表
   // 优惠券
-  CouponsList: ApiRootUrl + 'coupons/list', // 获取所有优惠券列表
+  GetAllCoupons: ApiRootUrl + 'coupons/getAllCoupons', // 获取所有优惠券列表（已标识出当前用户不能领取的）
   UserCouponsList: ApiRootUrl + 'user_coupons/list', // 获取当前用户下的优惠券列表
+  GetCoupon: ApiRootUrl + 'user_coupons/getCoupon', // 将优惠券领取到当前用户中
   // 首页
   IndexUrl: ApiRootUrl + 'index/appInfo', //首页数据接口
   // 分类

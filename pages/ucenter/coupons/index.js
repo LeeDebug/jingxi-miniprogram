@@ -23,7 +23,7 @@ Page({
 
   // 获取菜单列表
   getCouponsList() {
-    util.request(api.CouponsList).then((res) => {
+    util.request(api.GetAllCoupons).then((res) => {
       if (res.errno === 0) {
         const list = res.data
         // console.log('couponsList => list:\n', list)
@@ -38,6 +38,12 @@ Page({
   // 点击领取优惠券
   getCoupon({ detail: { coupon } }) {
     console.log('getCoupon -> coupon:\n', coupon)
+    util.request(api.GetCoupon, {
+      a: 111,
+      coupon_id: coupon.id
+    }, 'POST').then((res) => {
+        console.log('GetCoupon => res:\n', res)
+    })
   },
 
   /**

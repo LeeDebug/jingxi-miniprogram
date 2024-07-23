@@ -21,8 +21,10 @@
     </view>
 
     <view class="coupon-operate">
-      <button class="operate-btn" bindtap="handleGetCoupon">立即领取</button>
-      <view class="operate-tag">快过期</view>
+      <button class="operate-btn" bindtap="handleGetCoupon" disabled="{{ !coupon.canGet }}">
+        {{ coupon.canGet ? '立即领取' : '稍后再试' }}
+      </button>
+      <view class="operate-tag" wx:if="{{ coupon.canGet }}">快过期</view>
     </view>
   
   </view>

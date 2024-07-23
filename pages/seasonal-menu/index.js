@@ -19,12 +19,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    util.request(api.UserCouponsList).then((res) => {
-        console.log('UserCouponsList => res:\n', res)
-    })
-    // setTimeout(() => {
-    //   this.getSeasonalMenuList();
-    // }, 0);
+    setTimeout(() => {
+      this.getSeasonalMenuList();
+    }, 0);
   },
 
   // 获取菜单列表
