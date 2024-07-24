@@ -18,7 +18,7 @@ Page({
             status: options.status
         })
     },
-    toOrderListPage: function(event) {
+    toUCenterPage: function(event) {
         wx.switchTab({
             url: '/pages/ucenter/index/index',
         });
