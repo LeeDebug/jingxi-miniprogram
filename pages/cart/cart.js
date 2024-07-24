@@ -199,15 +199,15 @@ Page({
             if (res.errno === 0) {
                 let cartGoodsCount = '';
                 if (res.data.cartTotal.goodsCount == 0) {
-                    wx.removeTabBarBadge({
-                        index: 2,
-                    })
+                    // wx.removeTabBarBadge({
+                    //     index: 2,
+                    // })
                 } else {
                     cartGoodsCount = res.data.cartTotal.goodsCount + '';
-                    wx.setTabBarBadge({
-                        index: 2,
-                        text: cartGoodsCount
-                    })
+                    // wx.setTabBarBadge({
+                    //     index: 2,
+                    //     text: cartGoodsCount
+                    // })
                 }
             }
         });

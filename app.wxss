@@ -4,7 +4,7 @@
 @import "colorui/icon.wxss";
 
 page {
-  --theme-color: #12addb;
+  --theme-color: #0081FF;
   --font-size: 16px;
 }
 

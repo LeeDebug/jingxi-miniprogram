@@ -19,12 +19,9 @@
 		<!-- wx:if="{{orderList.length <= 0}}" -->
 		<image src="/images/icon/no-order.png" class="no-order-img"></image>
 		<view class="text">您目前没有相关订单</view>
-		<view class=" bg-blue to-index-btn" bindtap="toIndexPage">
+		<view class="to-index-btn" bindtap="toIndexPage">
 			马上去逛逛
 		</view>
-		<!-- <view class="to-index-btn" bindtap="test">
-      马上去逛逛
-    </view>  -->
 	</view>
 	<view wx:else class="wrap">
 		<!--  待付款  -->

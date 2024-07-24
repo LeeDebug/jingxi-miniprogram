@@ -83,15 +83,15 @@ Page({
                 });
                 let cartGoodsCount = '';
                 if (res.data.cartCount == 0) {
-                    wx.removeTabBarBadge({
-                        index: 2,
-                    })
+                    // wx.removeTabBarBadge({
+                    //     index: 2,
+                    // })
                 } else {
                     cartGoodsCount = res.data.cartCount + '';
-                    wx.setTabBarBadge({
-                        index: 2,
-                        text: cartGoodsCount
-                    })
+                    // wx.setTabBarBadge({
+                    //     index: 2,
+                    //     text: cartGoodsCount
+                    // })
                 }
             }
         });
