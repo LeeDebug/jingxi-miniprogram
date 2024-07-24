@@ -1,0 +1,16 @@
+<!--components/empty-page/index.wxml-->
+
+<view class="e-bar">
+  <view class="bar-title">温馨提示：</view>
+
+  <view class="bar-content">
+    <view>老板和老板娘太忙了~</view>
+    <view>这个页面还没开发完~</view>
+    <view>去逛逛别的页面吧~</view>
+  </view>
+
+  <view class="bar-button">
+    <button bindtap="goBack">点击返回</button>
+  </view>
+
+</view>

@@ -1,4 +1,4 @@
-// pages/ucenter/coupons/index.js
+// pages/ucenter/coupons/my.js
 
 const app = getApp()
 var util = require('../../../utils/util.js');
@@ -72,5 +72,12 @@ Page({
 
   // 前往 时令菜单 页面
   goSeasonalPage: app.goSeasonalPage,
+
+  // 前往 领券中心 页面
+  gotoGetCouponsCenter() {
+    wx.navigateTo({
+      url: '/pages/ucenter/coupons/center',
+    })
+  }
 
 })

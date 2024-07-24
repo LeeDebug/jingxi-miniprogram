@@ -37,13 +37,22 @@
       <!-- <view class="content-cost">￥1324</view> -->
     </view>
 
-    <view class="coupon-operate">
-      <button class="operate-btn" bindtap="handleGetCoupon" disabled="{{ !coupon.canGet }}">
-        {{ coupon.canGet ? '立即领取' : '已领取' }}
+    <view wx:if="{{ coupon.canGet }}" class="coupon-operate">
+      <button class="operate-btn" bindtap="handleGetCoupon" disabled="false">
+        立即领取
       </button>
-      <view class="operate-tag" wx:if="{{ coupon.canGet }}">
-        即将过期
+      <view class="operate-tag">
+        <!-- 即将过期 -->
         <!-- {{ coupon.end_date }} -->
+      </view>
+    </view>
+
+    <view wx:if="{{ coupon.canUse }}" class="coupon-operate">
+      <button class="operate-btn" bindtap="handleGetCoupon">
+        立即使用
+      </button>
+      <view class="operate-tag">
+        即将过期
       </view>
     </view>
   

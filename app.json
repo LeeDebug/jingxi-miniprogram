@@ -22,10 +22,12 @@
     "pages/payResult/payResult",
     "pages/payOffline/index",
     "pages/ucenter/mumber/index",
-    "pages/ucenter/coupons/index",
     "components/coupons-show/index",
+    "pages/ucenter/coupons/my",
+    "pages/ucenter/coupons/center",
     "pages/ucenter/points/index",
-    "pages/ucenter/balance/index"
+    "pages/ucenter/balance/index",
+    "components/empty-page/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

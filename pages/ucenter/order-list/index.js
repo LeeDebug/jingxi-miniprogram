@@ -83,7 +83,7 @@ Page({
     },
     onLoad: function() {},
     onShow: function() {
-        let showType = wx.getStorageSync('showType');
+        let showType = wx.getStorageSync('showType') || 2;
         let nowShowType = this.data.showType;
         let doRefresh = wx.getStorageSync('doRefresh');
         if (nowShowType != showType || doRefresh == 1) {

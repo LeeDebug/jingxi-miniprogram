@@ -248,19 +248,19 @@ page {
 }
 
 .edit-btn {
-    padding: 8rpx 20rpx;
+    padding: 0 20rpx;
     border-radius: 6rpx;
     font-size: 24rpx;
     color: #fff;
     background: linear-gradient(to right, #ff3456, #ff347d);
-    height: 40rpx;
-    line-height: 40rpx;
+    height: 50rpx;
+    line-height: 50rpx;
     border: 1rpx solid #ff3456;
     margin-right: 24rpx;
 }
 
 .dele-btn {
-    padding: 0rpx 20rpx;
+    padding: 0 20rpx;
     border-radius: 6rpx;
     font-size: 24rpx;
     height: 50rpx;

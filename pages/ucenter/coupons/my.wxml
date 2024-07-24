@@ -33,4 +33,13 @@
 
   </view>
 
+  <!-- 底部 前往领券中心 -->
+  <view class="cu-bar foot tabbar bg-gray">
+    <!-- <view class="bg-white submit">加入购物车</view> -->
+    <button class="bg-blue submit" bindtap="gotoGetCouponsCenter">
+      <text class="cuIcon-ticket"> 前往领券中心</text>
+      <!-- <text class="cuIcon-forward margin-left-lg"></text> -->
+    </button>
+  </view>
+
 </view>

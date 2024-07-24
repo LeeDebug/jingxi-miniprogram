@@ -49,7 +49,7 @@ Page({
     let res = util.loginNow();
     if (res == true) {
       wx.navigateTo({
-        url: '/pages/ucenter/coupons/index',
+        url: '/pages/ucenter/coupons/my',
       });
     }
   },
