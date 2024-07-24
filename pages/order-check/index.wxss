@@ -3,6 +3,12 @@ page {
     background-color: #f2f2f2;
 }
 
+/* 轮播公告 */
+.c-tips {
+  margin: 0;
+  height: 70rpx;
+}
+
 .container {
     background-color: #f2f2f2;
     min-height: 100%;

@@ -1,4 +1,19 @@
 <view class="container">
+
+  <!-- 轮播公告，点击跳转 -->
+  <swiper class="tips-swiperitem margin-tb c-tips" autoplay="true" circular="true" interval="2000" duration="500">
+    <block wx:for="{{Headlines}}" wx:key="item">
+      <swiper-item catchtouchmove='false' bindtap="linesclick" data-url="{{item.url}}">
+        <view class="bg-blue light">
+          <view class='padding-xs text-xl'>
+            <text class='cuIcon-magic text-blue'></text>
+            <text class="text-df"> {{item.title}}</text>
+          </view>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+
 	<view class='wrap'>
 		<view class="address-box">
 			<view class="receive-title">配送地址</view>

@@ -5,6 +5,18 @@ const app = getApp()
 
 Page({
     data: {
+      Headlines: [
+        {
+          id: 0,
+          title: "下单前要先看好下周菜单哦~ (点击即可查看)",
+          url: '/pages/seasonal-menu/index'
+        },
+        {
+          id: 1,
+          title: "优惠券中心上线啦，快去抢几张~",
+          url: '/pages/ucenter/coupons/my'
+        }
+      ],
         checkedGoodsList: [],
         checkedAddress: {},
         goodsTotalPrice: 0.00, //商品总价
@@ -27,6 +39,25 @@ Page({
         ],
         payMethod:1,
     },
+
+    
+  /**
+   * 点击跳转
+   * @param {*} e 
+   */
+  linesclick(e) {
+    var swip = e.currentTarget.dataset
+    // console.log(swip);
+    wx.switchTab({
+      url: swip.url,
+      fail() {
+        wx.navigateTo({
+          url: swip.url
+        });
+      }
+    })
+  },
+
     payChange(e){
         let val = e.detail.value;
         if(val == 'offline'){
