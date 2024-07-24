@@ -46,7 +46,15 @@ Page({
         current: current, // 当前显示图片的http链接
         urls: that.data.menuImages // 需要预览的图片http链接列表
     })
-},
+  },
+
+  // 前往某个商品页面
+  gotoGoods() {
+    wx.navigateTo({
+      // ! 先写死一个商品值
+      url: '/pages/goods/goods?id=1009024',
+    })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

@@ -41,6 +41,13 @@ Page({
         }
     },
     toGoodsList: function (e) {
+        if (this.data.addType == 1) {
+          wx.showToast({
+            title: '尚未下单，暂时不能查看',
+            icon: 'none'
+          })
+          return false
+        }
         wx.navigateTo({
             url: '/pages/ucenter/goods-list/index?id=0',
         });
