@@ -76,7 +76,7 @@ Page({
     console.log('[app-auth.js] postLogin -> wx.getStorageSync -> userInfo: ', ui)
 
     wx.showLoading({
-      title: '正在获取登录信息...',
+      title: '获取登录信息...',
     })
 
     util.request(api.AuthLoginByWeixin, {

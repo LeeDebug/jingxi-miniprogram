@@ -2,12 +2,14 @@
 
 .container {
     background-color: #fff;
-    min-height: 100%;
-    align-items: stretch;
-    overflow-x: hidden;
-    position: relative;
-    width: 100%;
-    padding-top: 100rpx;
+    /* min-height: 1200rpx; */
+    /* align-items: stretch; */
+    /* overflow-x: hidden; */
+    /* position: relative; */
+    width: calc(100% - 80rpx);
+    padding: 200rpx 0;
+    margin: 40rpx;
+    border-radius: 20rpx;
 }
 
 .logo{
@@ -19,8 +21,8 @@
 }
 
 .logo .logo-img{
-    width: 120rpx;
-    height: 120rpx;
+    width: 400rpx;
+    height: 400rpx;
 }
 
 
@@ -43,10 +45,10 @@
     margin-bottom: 30rpx;
 }
 
-.login{
+.login-hint {
+    margin-top: 100rpx;
     width: 100%;
     height: 80rpx;
-    margin-top: 80rpx;
     font-size: 28rpx;
     color: #999;
     text-align: center;

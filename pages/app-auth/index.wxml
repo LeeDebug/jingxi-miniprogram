@@ -1,18 +1,19 @@
 <view class="container">
     <view class='logo'>
-        <image class='logo-img' src='/images/icon/loading.gif'></image>
+        <image class='logo-img' src='/images/img/JingXi_Logo.png'></image>
     </view>
-    <view class='logo-name'>鲸禧控卡</view>
-    <view class='intro'>开源微信小程序商城</view>
-    <view class='login'>请完成微信授权以继续使用</view>
+    <!-- <view class='logo-name'>鲸禧控卡</view> -->
+    <!-- <view class='intro'>开源微信小程序商城</view> -->
+
+    <view class='login-hint'>请完成微信授权以继续使用</view>
     <!-- <button class='btn-login' open-type="getUserInfo" bindgetuserinfo='getUserInfo'>
         <image src='/images/icon/weixin-w.png' class='img-w'></image>
         <view class='text'>微信快捷登录</view>
     </button> -->
     <button class='btn-login' bindtap='getUserProfile'>
-        <view class='img-w'></view>
-        <view class='text'>微信快捷登录</view>
+        <image src='/images/icon/weixin-w.png' class='img-w'></image>
+        <text class='text'> 微信快捷登录</text>
     </button>
 
-    <view class="cancel" bindtap="goBack">取消</view>
+    <view class="cancel" bindtap="goBack">取 消</view>
 </view>
