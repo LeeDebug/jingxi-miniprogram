@@ -235,7 +235,7 @@ Page({
     },
     // 最终确认使用优惠券
     handleSelectCoupon() {
-      console.log('handleSelectCoupon -> chooseCouponModalThrowData: ', this.data.chooseCouponModalThrowData)
+      // console.log('handleSelectCoupon -> chooseCouponModalThrowData: ', this.data.chooseCouponModalThrowData)
       this.setData({
         // 关闭弹窗
         showCouponBottomModal: false,

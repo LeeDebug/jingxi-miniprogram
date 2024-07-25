@@ -74,6 +74,7 @@ Component({
       // 减免价格
       if (couponItem.discount_type == 'fixed') {
         // console.log('generateRealPrice -> fixed -> discount_value: ', couponItem.discount_value)
+        // 取 优惠券的优惠价格 和 订单总价的最小值
         discountedPrice = this.properties.originalPrice - (Math.min(couponItem.discount_value, this.properties.originalPrice))
       }
       // console.log('generateRealPrice -> discountedPrice: ', discountedPrice)
