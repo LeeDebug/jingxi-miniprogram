@@ -289,7 +289,8 @@ Page({
             } else {
                 util.showErrorToast(res.errmsg);
             }
-            wx.hideLoading()
+        }).finally(() => {
+          wx.hideLoading()
         });
     },
 

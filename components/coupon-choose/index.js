@@ -74,7 +74,7 @@ Component({
       // 减免价格
       if (couponItem.discount_type == 'fixed') {
         // console.log('generateRealPrice -> fixed -> discount_value: ', couponItem.discount_value)
-        discountedPrice = this.properties.originalPrice - couponItem.discount_value
+        discountedPrice = this.properties.originalPrice - (Math.min(couponItem.discount_value, this.properties.originalPrice))
       }
       // console.log('generateRealPrice -> discountedPrice: ', discountedPrice)
       // 全部计算完，最终给 data 赋值
