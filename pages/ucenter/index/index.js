@@ -96,24 +96,28 @@ Page({
       });
     }
   },
-  // goAuth: function (e) {
-  //   wx.navigateTo({
-  //     url: '/pages/app-auth/index',
-  //   });
-  // },
-  goAuth() {
-    let code = '';
-    let that = this;
-    wx.login({
-      success: (res) => {
-        code = res.code;
-        that.postLogin(code)
-      },
+  goAuth: function (e) {
+    wx.navigateTo({
+      url: '/pages/app-auth/index',
     });
   },
+  // goAuth() {
+  //   let code = '';
+  //   let that = this;
+  //   wx.login({
+  //     success: (res) => {
+  //       code = res.code;
+  //       that.postLogin(code)
+  //     },
+  //   });
+  // },
   postLogin(code) {
     const ui = wx.getStorageSync('userInfo')
     console.log('[ucenter.js] postLogin -> wx.getStorageSync -> userInfo: ', ui)
+    if (!ui) {
+      console.error("[ucenter.js] 该设备为首次登录，取消自动登录机制！")
+      return false
+    }
 
     let that = this;
     util.request(api.AuthLoginByWeixin, {
@@ -133,7 +137,8 @@ Page({
     });
   },
   onLoad: function (options) {
-    this.goAuth();
+    // 取消自动登录？？？
+    // this.goAuth();
   },
   onShow: function () {
     this.getOrderInfo();

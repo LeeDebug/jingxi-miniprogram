@@ -7,6 +7,10 @@ App({
   onLaunch: function () {
     const ui = wx.getStorageSync('userInfo')
     console.log('[app.js] onLaunch -> wx.getStorageSync -> userInfo: ', ui)
+    if (!ui) {
+      console.error("[app.js] 该设备为首次登录，取消自动登录机制！")
+      return false
+    }
 
     this.data.deviceInfo = wx.getSystemInfoSync();
     console.log(this.data.deviceInfo);

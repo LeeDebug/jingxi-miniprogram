@@ -38,11 +38,15 @@ Page({
     // wx.navigateTo({
     //     url: '/pages/app-auth/index',
     // });
+    wx.showLoading({
+      title: '正在登录...',
+    })
     let that = this;
     let code = '';
     wx.login({
       success: (res) => {
         code = res.code;
+        wx.hideLoading()
       },
     });
     // 获取用户信息
@@ -71,8 +75,12 @@ Page({
     const ui = wx.getStorageSync('userInfo')
     console.log('[app-auth.js] postLogin -> wx.getStorageSync -> userInfo: ', ui)
 
+    wx.showLoading({
+      title: '正在获取登录信息...',
+    })
+
     util.request(api.AuthLoginByWeixin, {
-      info: info
+      code: info.code
     }, 'POST').then(function (res) {
       if (res.errno === 0) {
         wx.setStorageSync('userInfo', res.data.userInfo);
@@ -87,6 +95,8 @@ Page({
           wx.navigateBack();
         }
       }
+    }).finally(() => {
+      wx.hideLoading()
     });
   },
   goBack: function () {
