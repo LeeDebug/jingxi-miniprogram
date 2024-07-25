@@ -31,7 +31,7 @@ Page({
     }, 0);
   },
 
-  // 获取菜单列表
+  // 获取优惠券列表
   getCouponsList(query) {
     wx.showLoading({
       title: '加载中...'
@@ -54,12 +54,12 @@ Page({
   // 点击领取优惠券
   getCoupon({ detail: { coupon } }) {
     console.log('getCoupon -> coupon:\n', coupon)
-    util.request(api.GetCoupon, {
-      a: 111,
-      coupon_id: coupon.id
-    }, 'POST').then((res) => {
-        console.log('GetCoupon => res:\n', res)
-    })
+    // util.request(api.GetCoupon, {
+    //   a: 111,
+    //   coupon_id: coupon.id
+    // }, 'POST').then((res) => {
+    //     console.log('GetCoupon => res:\n', res)
+    // })
   },
 
   // 切换卡片

@@ -23,6 +23,7 @@
     "pages/payOffline/index",
     "pages/ucenter/mumber/index",
     "components/coupons-show/index",
+    "components/coupon-choose/index",
     "pages/ucenter/coupons/my",
     "pages/ucenter/coupons/center",
     "pages/ucenter/points/index",

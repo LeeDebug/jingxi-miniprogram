@@ -5,6 +5,7 @@ const app = getApp()
 
 Page({
     data: {
+      // 滚动公告
       Headlines: [
         {
           id: 0,
@@ -17,27 +18,33 @@ Page({
           url: '/pages/ucenter/coupons/my'
         }
       ],
-        checkedGoodsList: [],
-        checkedAddress: {},
-        goodsTotalPrice: 0.00, //商品总价
-        freightPrice: 0.00, //快递费
-        orderTotalPrice: 0.00, //订单总价
-        actualPrice: 0.00, //实际需要支付的总价
-        addressId: 0,
-        goodsCount: 0,
-        postscript: '',
-        outStock: 0,
-        payMethodItems: [{
-                name: 'offline',
-                value: '线下支付'
-            },
-            {
-                name: 'online',
-                value: '在线支付',
-                checked: 'true'
-            },
-        ],
-        payMethod:1,
+      checkedGoodsList: [],
+      checkedAddress: {},
+      goodsTotalPrice: 0.00, //商品总价
+      freightPrice: 0.00, //快递费
+      orderTotalPrice: 0.00, //订单总价
+      actualPrice: 0.00, //实际需要支付的总价
+      addressId: 0, // 地址 id
+      goodsCount: 0, // 商品数量
+      postscript: '', // 备注
+      outStock: 0,
+      payMethodItems: [{
+              name: 'offline',
+              value: '线下支付'
+          },
+          {
+              name: 'online',
+              value: '在线支付',
+              checked: 'true'
+          },
+      ],
+      payMethod:1,
+      // 是否展示 选择优惠券 底部弹窗
+      showCouponBottomModal: false,
+      // 底部弹窗抛出来的数据
+      chooseCouponModalThrowData: {},
+      // 可使用的优惠券列表
+      canUseCouponsList: [],
     },
 
     
@@ -130,6 +137,7 @@ Page({
         } catch (e) {}
         this.getCheckoutInfo();
     },
+
     onPullDownRefresh: function () {
         wx.showNavigationBarLoading()
         try {
@@ -147,6 +155,7 @@ Page({
         wx.hideNavigationBarLoading() //完成停止加载
         wx.stopPullDownRefresh() //停止下拉刷新
     },
+
     getCheckoutInfo: function () {
         let that = this;
         let addressId = that.data.addressId;
@@ -184,6 +193,57 @@ Page({
             }
         });
     },
+
+    // 获取可用优惠券
+    getCouponsList() {
+      util.request(api.UserCouponsList, {
+        coupon_type: 1 // 默认回去 待使用 的
+      }, 'GET').then((res) => {
+        if (res.errno === 0) {
+          const list = res.data
+          // console.log('couponsList => list:\n', list)
+          this.setData({
+            canUseCouponsList: list,
+          })
+        }
+      });
+    },
+    // 打开 选择优惠券 底部弹窗
+    openChooseCouponModal() {
+      this.getCouponsList()
+      this.setData({
+        // 打开弹窗
+        showCouponBottomModal: true
+      })
+    },
+    // 隐藏 选择优惠券 底部弹窗
+    hideChooseCouponModal() {
+      this.setData({
+        // 关闭弹窗
+        showCouponBottomModal: false,
+        // 清空数据
+        chooseCouponModalThrowData: {}
+      })
+    },
+    // 底部弹窗的回调，存储优惠券及价格信息
+    generateActualPrice({ detail }) {
+      // console.log('generateActualPrice -> detail: ', detail)
+      // 暂存数据
+      this.setData({
+        chooseCouponModalThrowData: detail
+      })
+    },
+    // 最终确认使用优惠券
+    handleSelectCoupon() {
+      console.log('handleSelectCoupon -> chooseCouponModalThrowData: ', this.data.chooseCouponModalThrowData)
+      this.setData({
+        // 关闭弹窗
+        showCouponBottomModal: false,
+        // 展示 实付 价格
+        actualPrice: this.data.chooseCouponModalThrowData.discountedPrice
+      })
+    },
+
     // TODO 有个bug，用户没选择地址，支付无法继续进行，在切换过token的情况下
     submitOrder: function (e) {
         if (this.data.addressId <= 0) {
@@ -194,6 +254,13 @@ Page({
         let postscript = this.data.postscript;
         let freightPrice = this.data.freightPrice;
         let actualPrice = this.data.actualPrice;
+
+        // 如果使用了优惠券，则上传优惠券id
+        let couponId = ''
+        if (this.data.chooseCouponModalThrowData && this.data.chooseCouponModalThrowData.coupon_id) {
+          couponId = this.data.chooseCouponModalThrowData.coupon_id
+        }
+
         wx.showLoading({
             title: '',
             mask:true
@@ -203,6 +270,7 @@ Page({
             postscript: postscript,
             freightPrice: freightPrice,
             actualPrice: actualPrice,
+            couponId: couponId,
             offlinePay: 0
         }, 'POST').then(res => {
             if (res.errno === 0) {
@@ -224,6 +292,7 @@ Page({
             wx.hideLoading()
         });
     },
+
     offlineOrder: function (e) {
         if (this.data.addressId <= 0) {
             util.showErrorToast('请选择收货地址');

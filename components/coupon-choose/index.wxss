@@ -1,0 +1,121 @@
+.coupon-hint {
+  /* border: 1px solid red; */
+  text-align: left;
+  padding: 30rpx 40rpx 10rpx;
+}
+
+.hint-price {
+  color: #ff453e;
+}
+
+.coupon-wrap {
+  /* 减去两边的 padding 宽度 */
+  width: calc(100% - 40rpx);
+  height: 100%;
+  padding: 20rpx;
+  border-radius: 20rpx;
+}
+
+.coupon-item {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 20rpx;
+  display: flex;
+  background-color: rgba(18, 173, 219, 0.2);
+  border-radius: 20rpx;
+  padding: 20rpx 0;
+}
+
+.c-left {
+  /* border: 1px solid red; */
+  width: 200rpx;
+  color: var(--theme-color);
+  text-align: center;
+  border-right: 2rpx dashed #ccc;
+}
+
+.c-price {
+  font-size: 48rpx;
+}
+
+.c-menkan {
+  font-size: 24rpx;
+}
+
+.c-content {
+  /* border: 1px solid green; */
+  width: calc(100% - 200rpx - 100rpx);
+}
+
+.c-title {
+  font-size: 36rpx;
+  font-weight: 600;
+}
+
+.c-endtime {
+  margin-top: 10rpx;
+  color: gray;
+}
+
+.c-right {
+  /* border: 1px solid blue; */
+  width: 100rpx;
+  display: flex;
+  align-items: center;
+}
+
+radio.c-radio {
+  transform: scale(0.8, 0.8);
+  color: white !important;
+}
+
+radio.c-radio::before {
+  color: white !important;
+  /* border-color: blue !important; */
+  /* background-color: red !important; */
+}
+
+
+/* ================ 以下暂时不生效 ================ */
+.cu-coupon-box2 {
+  width: 600rpx;
+  height: 140rpx;
+  overflow: hidden;
+  position: relative;
+  background: radial-gradient(circle at right top, transparent 18rpx, var(--pinkLight) 0) top left / 215rpx 51% no-repeat,
+    radial-gradient(circle at right bottom, transparent 18rpx, var(--pinkLight) 0) bottom left /215rpx 51% no-repeat,
+    radial-gradient(circle at left top, transparent 18rpx, var(--cyanLight) 0) top right /387rpx 51% no-repeat,
+    radial-gradient(circle at left bottom, transparent 18rpx, var(--cyanLight) 0) bottom right /387rpx 51% no-repeat;
+  margin: 20rpx auto;
+  /* 解决filter-导致border-radius生效 */
+  transform: translate3d(0, 0, 0);
+  border-radius: 24rpx;
+}
+
+.cu-coupon-box2.checked {
+  filter: drop-shadow(4rpx 4rpx 2rpx rgba(0, 0, 0, .3));
+}
+
+.cu-coupon-box2::after {
+  content: '';
+  height: 100rpx;
+  width: 4rpx;
+  background-image: linear-gradient(0deg, #fff 50%, transparent 50%);
+  background-size: 20rpx 20rpx;
+  position: absolute;
+  left: 212rpx;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.c-end-tag {
+  display: block !important;
+  width: fit-content;
+  height: auto;
+  padding: 4rpx 20rpx;
+}
+
+.discount-text {
+  font-size: 60rpx;
+}

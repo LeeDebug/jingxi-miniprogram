@@ -52,7 +52,7 @@ Page({
   gotoGoods() {
     wx.navigateTo({
       // ! 先写死一个商品值
-      url: '/pages/goods/goods?id=1009024',
+      url: '/pages/goods/goods?id=1109008',
     })
   },
 

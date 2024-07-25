@@ -1,0 +1,51 @@
+<!--components/coupon-choose/index.wxml-->
+
+<view class="coupon-hint" wx:if="{{ selecedCoupon }}">
+  您已选中优惠，使用红包 1 个，共抵扣
+  <text class="hint-price">¥{{ originalPrice - discountedPrice }}</text>
+  元
+</view>
+
+<radio-group class="coupon-wrap" bindchange="changeCoupon" value="{{ selecedCoupon }}">
+
+  <view wx:for="{{ couponsList }}" wx:key="id" class="coupon-item" bindtap="selectCoupon" data-couponid="{{ item.id }}">
+
+    <view class="c-left">
+      <view wx:if="{{ item.discount_type == 'percentage' }}">
+        <view class="c-price">{{ item.discount_value * 10 }} 折</view>
+        <view class="c-menkan">满 {{ item.minimum_spend }} 元可用</view>
+      </view>
+      <view wx:if="{{ item.discount_type == 'fixed' }}">
+        <view class="c-price">{{ item.discount_value }} 元</view>
+        <view class="c-menkan">满 {{ item.minimum_spend }} 元可用</view>
+      </view>
+    </view>
+
+    <view class="c-content">
+      <view class="c-title">{{ item.description }}</view>
+      <view class="c-endtime">至: {{ item.end_date }}</view>
+    </view>
+
+    <view class="c-right">
+      <radio class="c-radio" value="{{ item.id }}" checked="{{ item.id === selecedCoupon }}"></radio>
+    </view>
+  </view>
+
+</radio-group>
+
+
+<!-- ================ 以下暂时不生效 ================ -->
+
+<!-- <view class="cu-coupon-box2 {{ true ? 'checked' : '' }}" bindtap="selectCoupon" data-id="{{ coupon.id }}">
+  <view class="cu-tag bg-orange radius text-df padding-lr-sm c-end-tag">{{ coupon.checked }}</view>
+  <view class="flex p-xs margin-bottom-sm mb-sm">
+    <view class="flex-sub padding-left text-red">
+      <text class="discount-text" wx:if="{{ coupon.discount_type == 'percentage' }}">{{ coupon.discount_value * 10 }}折</text>
+      <text class="discount-text" wx:if="{{ coupon.discount_type == 'fixed' }}">{{ coupon.discount_value }}元</text>
+    </view>
+    <view class="flex-treble padding-left-lg">
+      <view class="text-black text-lg text-bold">{{ coupon.description }}</view>
+      <view class="text-gray padding-top-xs">至：{{ coupon.end_date }}</view>
+    </view>
+  </view>
+</view> -->
