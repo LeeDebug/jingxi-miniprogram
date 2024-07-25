@@ -1,6 +1,5 @@
 {
   "pages": [
-    "pages/seasonal-menu/index",
     "pages/index/index",
     "pages/app-auth/index",
     "pages/category/index",
@@ -21,6 +20,7 @@
     "pages/ucenter/footprint/index",
     "pages/payResult/payResult",
     "pages/payOffline/index",
+    "pages/seasonal-menu/index",
     "pages/ucenter/mumber/index",
     "components/coupons-show/index",
     "components/coupon-choose/index",

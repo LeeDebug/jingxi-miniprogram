@@ -75,6 +75,7 @@ Page({
     const ui = wx.getStorageSync('userInfo')
     console.log('[app-auth.js] postLogin -> wx.getStorageSync -> userInfo: ', ui)
 
+    // [ 微信登录授权页面，唯一的登录页面 ]
     wx.showLoading({
       title: '获取登录信息...',
     })
@@ -92,7 +93,10 @@ Page({
           util.showErrorToast('您已经是老用户啦！');
           wx.navigateBack();
         } else if (is_new == 1) {
-          wx.navigateBack();
+          // 新用户跳转到首页，领取新人券
+          wx.switchTab({
+            url: '/pages/index/index',
+          });
         }
       }
     }).finally(() => {

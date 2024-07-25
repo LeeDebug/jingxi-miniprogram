@@ -8,7 +8,10 @@ App({
     const ui = wx.getStorageSync('userInfo')
     console.log('[app.js] onLaunch -> wx.getStorageSync -> userInfo: ', ui)
     if (!ui) {
-      console.error("[app.js] 该设备为首次登录，取消自动登录机制！")
+      console.error("[app.js] 该设备为首次登录，直接跳转到微信授权登录界面！")
+      wx.navigateTo({
+        url: '/pages/app-auth/index',
+      });
       return false
     }
 

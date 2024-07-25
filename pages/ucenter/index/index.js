@@ -115,7 +115,10 @@ Page({
     const ui = wx.getStorageSync('userInfo')
     console.log('[ucenter.js] postLogin -> wx.getStorageSync -> userInfo: ', ui)
     if (!ui) {
-      console.error("[ucenter.js] 该设备为首次登录，取消自动登录机制！")
+      console.error("[ucenter.js] 该设备为首次登录，直接跳转到微信授权登录界面！")
+      wx.navigateTo({
+        url: '/pages/app-auth/index',
+      });
       return false
     }
 

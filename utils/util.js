@@ -238,6 +238,13 @@ function sentRes(url, data, method, fn) {
 function loginNow() {
     const ui = wx.getStorageSync('userInfo')
     console.log('[util.js] loginNow -> wx.getStorageSync -> userInfo: ', ui)
+    if (!ui) {
+      console.error("[util.js] 该设备为首次登录，直接跳转到微信授权登录界面！")
+      wx.navigateTo({
+        url: '/pages/app-auth/index',
+      });
+      return false
+    }
 
     let userInfo = wx.getStorageSync('userInfo');
     if (userInfo == '') {
