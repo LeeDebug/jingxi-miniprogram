@@ -7,12 +7,16 @@ const api = require('../config/api.js');
  * 调用微信登录
  */
 function loginByWeixin() {
+    console.log(11111111111111)
     let code = null;
     return new Promise(function(resolve, reject) {
         return util.login().then((res) => {
             code = res.code;
             return util.getUserInfo();
         }).then((userInfo) => {
+            const ui = wx.getStorageSync('userInfo')
+            console.log('[user.js] loginByWeixin -> wx.getStorageSync -> userInfo: ', ui)
+
             //登录远程服务器
             util.request(api.AuthLoginByWeixin, {
                 code: code,

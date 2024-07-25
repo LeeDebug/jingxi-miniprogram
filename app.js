@@ -5,6 +5,9 @@ App({
     deviceInfo: {}
   },
   onLaunch: function () {
+    const ui = wx.getStorageSync('userInfo')
+    console.log('[app.js] onLaunch -> wx.getStorageSync -> userInfo: ', ui)
+
     this.data.deviceInfo = wx.getSystemInfoSync();
     console.log(this.data.deviceInfo);
     // 展示本地存储能力

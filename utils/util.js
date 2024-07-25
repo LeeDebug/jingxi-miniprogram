@@ -236,6 +236,9 @@ function sentRes(url, data, method, fn) {
 }
 
 function loginNow() {
+    const ui = wx.getStorageSync('userInfo')
+    console.log('[util.js] loginNow -> wx.getStorageSync -> userInfo: ', ui)
+
     let userInfo = wx.getStorageSync('userInfo');
     if (userInfo == '') {
       wx.login({

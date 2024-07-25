@@ -68,6 +68,9 @@ Page({
     });
   },
   postLogin(info) {
+    const ui = wx.getStorageSync('userInfo')
+    console.log('[app-auth.js] postLogin -> wx.getStorageSync -> userInfo: ', ui)
+
     util.request(api.AuthLoginByWeixin, {
       info: info
     }, 'POST').then(function (res) {
