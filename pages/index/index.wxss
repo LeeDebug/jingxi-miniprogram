@@ -63,9 +63,9 @@
     z-index: 9;
     right: 30rpx;
     bottom: 60rpx;
-    box-shadow: 2rpx 4rpx 10rpx #f1f1f1;
+    /* box-shadow: 2rpx 4rpx 10rpx #f1f1f1;
     color: #999;
-    border-radius: 10rpx;
+    border-radius: 10rpx; */
 }
 
 .contact-wrap .contact-btn {
@@ -75,6 +75,7 @@
     height: 130rpx;
     opacity: 0.9;
     background: #fff;
+    border-radius: 40rpx;
 }
 
 .contact-wrap .icon-mask {

@@ -7,7 +7,7 @@
     </swiper-item>
   </swiper> -->
   <!-- 2. 限高限宽轮播 -->
-  <swiper class="margin screen-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" style="height: 360rpx;">
+  <swiper class="margin screen-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="3000" duration="500" style="height: 360rpx;">
     <swiper-item class="radius" wx:for="{{seasonalMenuList}}" wx:key="item">
       <image src="{{item.image_url}}" mode="aspectFill" ></image>
     </swiper-item>

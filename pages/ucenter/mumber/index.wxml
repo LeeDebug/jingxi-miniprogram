@@ -27,7 +27,6 @@
   </view>
 </view>
 
-
 <!-- 权益按钮 -->
 <view class="cu-list menu {{menuBorder?'sm-border':''}} {{menuCard?'card-menu margin-top':''}} padding radius">
   <view class="cu-bar bg-white solid-bottom radius">

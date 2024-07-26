@@ -28,6 +28,11 @@
     </block>
   </swiper>
 
+  <!-- 店铺 Slogan 大图片 -->
+  <view>
+    TODO: 展示店铺的 Slogan 大图片
+  </view>
+
 </view>
 
 <!-- 全屏 loading 圈（可考虑封装为全局组件引入） -->
