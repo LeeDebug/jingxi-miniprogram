@@ -29,7 +29,8 @@
     "pages/ucenter/coupons/center",
     "pages/ucenter/points/index",
     "pages/ucenter/balance/index",
-    "components/empty-page/index"
+    "components/empty-page/index",
+    "pages/index/original"
   ],
   "window": {
     "backgroundTextStyle": "light",
