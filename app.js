@@ -56,7 +56,7 @@ App({
   },
   // 前往 时令菜单 页面
   goSeasonalPage() {
-    wx.switchTab({
+    wx.navigateTo({
       url: '/pages/seasonal-menu/index'
     })
   }

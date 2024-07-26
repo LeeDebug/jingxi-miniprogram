@@ -58,10 +58,10 @@
         "text": "点菜"
       },
       {
-        "pagePath": "pages/seasonal-menu/index",
+        "pagePath": "pages/ucenter/mumber/index",
         "iconPath": "images/nav/icon-caidan.png",
         "selectedIconPath": "images/nav/icon-caidan-checked.png",
-        "text": "时令菜单"
+        "text": "鲸禧家"
       },
       {
         "pagePath": "pages/ucenter/order-list/index",
