@@ -3,6 +3,8 @@ var api = require('../../config/api.js');
 
 Page({
     data: {
+      // 时令菜单列表
+      seasonalMenuList: [],
         navList: [],
         categoryList: [],
         currentCategory: {},
@@ -19,7 +21,24 @@ Page({
         index_banner_img:0,
     },
     onLoad: function(options) {
+      this.getSeasonalMenuList();
     },
+
+    // 获取菜单列表
+    getSeasonalMenuList() {
+      util.request(api.SeasonalMenuList).then((res) => {
+        if (res.errno === 0) {
+          const list = res.data
+          // list.map(v => v.release_time = util.formatTime(new Date(v.release_time)))
+          // console.log('SeasonalMenuList => list:\n', list)
+          this.setData({
+            seasonalMenuList: list,
+            // menuImages: JSON.parse(JSON.stringify(list)).map(v => v.image_url)
+          })
+        }
+      });
+    },
+
     getChannelShowInfo: function (e) {
         let that = this;
         util.request(api.ShowSettings).then(function (res) {

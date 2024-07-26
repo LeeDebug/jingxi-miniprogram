@@ -2563,8 +2563,8 @@ egg-label>span::after {
 
 .cu-list.menu-avatar>.cu-item .content {
   position: absolute;
-  left: 146rpx;
-  width: calc(100% - 96rpx - 60rpx - 120rpx - 20rpx);
+  left: 186rpx;
+  width: calc(100% - 136rpx - 60rpx - 120rpx);
   line-height: 1.6em;
 }
 

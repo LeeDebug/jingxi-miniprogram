@@ -28,7 +28,8 @@
     "pages/ucenter/coupons/center",
     "pages/ucenter/points/index",
     "pages/ucenter/balance/index",
-    "components/empty-page/index"
+    "components/empty-page/index",
+    "pages/category/test"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -50,7 +51,7 @@
         "text": "门店"
       },
       {
-        "pagePath": "pages/category/index",
+        "pagePath": "pages/category/test",
         "iconPath": "images/nav/icon-diancai.png",
         "selectedIconPath": "images/nav/icon-diancai-checked.png",
         "text": "点菜"

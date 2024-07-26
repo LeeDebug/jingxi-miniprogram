@@ -19,9 +19,9 @@ module.exports = {
   // 首页
   IndexUrl: ApiRootUrl + 'index/appInfo', //首页数据接口
   // 分类
-  CatalogList: ApiRootUrl + 'catalog/index', //分类目录全部分类数据接口
-  CatalogCurrent: ApiRootUrl + 'catalog/current', //分类目录当前分类数据接口
-  GetCurrentList: ApiRootUrl + 'catalog/currentlist',
+  CatalogList: ApiRootUrl + 'catalog/index', // 分类目录全部分类数据接口
+  CatalogCurrent: ApiRootUrl + 'catalog/current', // 分类目录当前分类数据接口（即 某个分类的 banner 图）
+  GetCurrentList: ApiRootUrl + 'catalog/currentlist', // 根据特定分类筛选商品接口
   // 购物车
   CartAdd: ApiRootUrl + 'cart/add', // 添加商品到购物车
   CartList: ApiRootUrl + 'cart/index', //获取购物车的数据
