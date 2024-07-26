@@ -58,12 +58,6 @@
         "text": "点菜"
       },
       {
-        "pagePath": "pages/ucenter/mumber/index",
-        "iconPath": "images/nav/icon-caidan.png",
-        "selectedIconPath": "images/nav/icon-caidan-checked.png",
-        "text": "鲸禧家"
-      },
-      {
         "pagePath": "pages/ucenter/order-list/index",
         "iconPath": "images/nav/icon-dingdan.png",
         "selectedIconPath": "images/nav/icon-dingdan-checked.png",
