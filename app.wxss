@@ -5,6 +5,7 @@
 
 page {
   --theme-color: #0081FF;
+  --default-bg-color: #F1F1F1;
   --font-size: 16px;
 }
 
