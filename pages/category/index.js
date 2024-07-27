@@ -18,6 +18,10 @@ Page({
     currentCategory: {},
     // 商品列表
     goodsListObj: {},
+    // 每个商品当前选购的数量
+    goodsOnCartNumber: {},
+    // 购物车总数量
+    cartTotal: 0,
     goodsCount: 0,
     nowIndex: 0,
     nowId: 0,
@@ -46,21 +50,24 @@ Page({
   },
 
   /**
-   * 生命周期函数--监听页面加载
+   * 生命周期函数 -- 监听页面加载
    */
   onLoad(options) {
-    // wx.showLoading({
-    //   title: '加载中...',
-    //   mask: true
-    // });
-    
     // 获取时令菜单列表
     this.getSeasonalMenuList()
 
     // 获取商品分类列表
     this.getCatalog()
+
     // 获取商品列表
     this.getCurrentList(0)
+  },
+
+  /**
+   * 生命周期函数 -- 监听页面展示
+   */
+  onShow() {
+    this.getCartList()
   },
 
   onPullDownRefresh: function() {
@@ -68,46 +75,6 @@ Page({
     // this.getCatalog() // 获取菜单列表
     // wx.hideNavigationBarLoading() //完成停止加载
     // wx.stopPullDownRefresh() //停止下拉刷新
-  },
-
-  onShow() {
-    // this.getChannelShowInfo();
-    // let id = this.data.nowId;
-    // let nowId = wx.getStorageSync('categoryId');
-    // if(id == 0 && nowId === 0){
-    //     return false
-    // }
-    // else if (nowId == 0 && nowId === '') {
-    //     this.setData({
-    //         list: [],
-    //         allPage: 1,
-    //         allCount: 0,
-    //         size: 8,
-    //         loading: 1
-    //     })
-    //     this.getCurrentList(0);
-    //     this.setData({
-    //         nowId: 0,
-    //         currentCategory: {}
-    //     })
-    //     wx.setStorageSync('categoryId', 0)
-    // } else if(id != nowId) {
-    //     this.setData({
-    //         list: [],
-    //         allPage: 1,
-    //         allCount: 0,
-    //         size: 8,
-    //         loading: 1
-    //     })
-    //     this.getCurrentList(nowId);
-    //     // this.getCurrentCategory(nowId);
-    //     this.setData({
-    //         nowId: nowId
-    //     })
-    //     wx.setStorageSync('categoryId', nowId)
-    // }
-    
-    // this.getCatalog();
   },
 
   // 获取时令菜单列表
@@ -154,6 +121,26 @@ Page({
   },
 
   /**
+   * 获取购物车总数量及购物车商品列表
+   */
+  getCartList() {
+    util.request(api.CartList).then(res => {
+      if (res.errno === 0) {
+        // console.log('getCartList -> red.data:\n', res.data)
+        const goodsOnCartNumber = {}
+        res.data.cartList.forEach(c => {
+          goodsOnCartNumber[c.goods_id] = c.number
+        })
+        // console.log('getCartList -> goodsOnCartNumber:\n', goodsOnCartNumber)
+        this.setData({
+          goodsOnCartNumber: goodsOnCartNumber,
+          cartTotal: res.data.cartTotal.checkedGoodsCount
+        })
+      }
+    })
+  },
+
+  /**
    * ????????????????????
    * @param {*} id 
    */
@@ -183,7 +170,12 @@ Page({
         let count = res.data.count;
 
         // 将列表数据处理为 category-list 对象
-        const goodsList = res.data.data
+        const goodsList = res.data.data.map(v => {
+          const fullString = v.min_retail_price.toFixed(2).split('.'); // 保留最多10位小数
+          v.price_before_point = fullString[0]
+          v.price_after_point = fullString[1]
+          return v
+        })
         let goodsListObj = {}
         this.data.list.forEach(c => {
           goodsListObj[c.id] = goodsList.filter(g => g.category_id == c.id)
@@ -285,7 +277,20 @@ Page({
   },
 
 
+  gotoGoodDetail({ currentTarget: { dataset } }) {
+    console.log('dataset:\n', dataset)
+    wx.navigateTo({
+      url: '/pages/goods/goods?id=' + dataset.id,
+    })
+  },
+  handleInnerNotClickable() {
+    // 空函数，阻止冒泡
+  },
 
+  // 少买一件
+  decreaseThisGood() {},
+  // 多买一件
+  increaseThisGood() {},
 
   tabSelect(e) {
     this.setData({
@@ -324,6 +329,15 @@ Page({
         return false
       }
     }
-  }
+  },
+
+  /**
+   *  前往购物车页面
+   */
+  gotoCartPage() {
+    wx.navigateTo({
+      url: '/pages/cart/cart',
+    })
+  },
 
 })

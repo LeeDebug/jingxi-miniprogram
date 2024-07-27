@@ -1,20 +1,84 @@
 /* pages/category/index.wxss */
 
-.cu-item-custom {
-  /* border: 1px solid red; */
-  /* margin: 20rpx; */
-  padding: 0 !important;
-  /* background-color: white; */
-  /* border-radius: 20rpx; */
-  height: 180rpx !important;
+page {
+  /* 默认白色背景 */
+  background-color: white;
 }
 
-/* 步进器 两侧按钮的样式【覆盖】 */
-.goods-number .cu-tag {
-  top: 0;
-  right: 0;
+.goods-cu-item {
+  /* border: 1px solid red; */
+  padding: 12rpx 20rpx 12rpx 12rpx !important;
+  height: 210rpx !important;
+  width: 100%;
+  /* 设置背景和边框 */
+  background-color: white;
+  border-radius: 20rpx;
+  margin-top: 20rpx;
+}
+
+.goods-wrap {
+  /* border: 1px solid green; */
+  width: 100%;
+  height: 100%;
+}
+
+/* 商品 封面 */
+.goods-image {
+  margin-right: 20rpx;
+  background-color: #EEE;
+  border: 1px solid #EEE;
+  border-radius: 20rpx;
+}
+
+/* 商品 中间内容 */
+.goods-content {
+  width: calc(100% - 180rpx - 20rpx) !important;
+  /* border: 1px solid blue; */
+}
+
+/* 步进器 */
+.goods-stepper-wrap {
+  /* border: 1px solid red; */
 }
 /* 步进器 两侧按钮的样式【覆盖】 */
-.goods-number text {
+.goods-stepper-wrap .goods-stepper {
+  top: 0;
+  right: 0;
+  width: 40rpx;
+  height: 40rpx;
+  font-size: 34rpx;
+}
+/* 步进器 两侧按钮的样式【覆盖】 */
+.goods-stepper-wrap .goods-buy-number {
   margin: 0 10rpx;
+  line-height: 44rpx;
+}
+
+/* 左下角 浮动 购物车图标 */
+.float-cart-wrap {
+  position: fixed;
+  z-index: 9;
+  left: 50rpx;
+  bottom: 50rpx;
+  background-color: #EEE;
+  border: 2rpx solid #DDD;
+  width: 100rpx;
+  height: 100rpx;
+  line-height: 96rpx;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.float-cart-wrap .cuIcon-goods {
+  font-size: 60rpx;
+}
+
+.float-cart-wrap .badge {
+  font-size: 30rpx;
+  height: 50rpx;
+  min-width: 50rpx;
+  width: fit-content;
+  top: -20rpx;
+  left: 70rpx;
+  right: 0;
 }

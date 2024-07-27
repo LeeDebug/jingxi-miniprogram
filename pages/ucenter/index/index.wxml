@@ -1,4 +1,6 @@
 <scroll-view scroll-y class="scrollPage">
+
+  <!-- 顶部 个人信息 -->
   <view>
     <!-- 未登录 -->
     <view wx:if="{{hasUserInfo == false}}" class="UCenter-bg">
@@ -20,49 +22,25 @@
   </view>
 
   <!-- 卡片下方的三个数据 -->
-  <view class="padding flex text-center text-grey bg-white shadow-warp">
-    <view class="flex flex-sub flex-direction solid-right" bindtap="togoBalancePage">
+  <view class="padding flex justify-around text-center text-grey bg-white shadow-warp">
+    <view class="padding-lr" bindtap="togoBalancePage">
       <view class="text-xxl text-orange">{{ userInfo.balance_number || 0 }}</view>
       <view class="margin-top-sm">
         <text class="cuIcon-moneybag"></text> 余额
       </view>
     </view>
-    <view class="flex flex-sub flex-direction solid-right" bindtap="togoPointsPage">
+    <view class="solid-right"></view>
+    <view class="padding-lr" bindtap="togoPointsPage">
       <view class="text-xxl text-blue">{{ userInfo.points_number || 0 }}</view>
       <view class="margin-top-sm">
         <text class="cuIcon-favor"></text> 积分
       </view>
     </view>
-    <view class="flex flex-sub flex-direction" bindtap="togoCouponsPage">
+    <view class="solid-right"></view>
+    <view class="padding-lr" bindtap="togoCouponsPage">
       <view class="text-xxl text-green">{{ userInfo.coupon_count || 0 }}</view>
       <view class="margin-top-sm">
         <text class="cuIcon-ticket"></text> 优惠券
-      </view>
-    </view>
-  </view>
-
-  <view class="mumber-container">
-    <view class="mumber-wrap" bindtap='toMumberCenterPage'>
-      <view>
-        <view class="card-row-1">
-          <view class='fl'>
-            <text>鲸禧之家(会员中心)</text>
-          </view>
-          <view class='fr'>
-            <image class='mumber-qr-code' src="/images/icon/qr-code.png"></image>
-          </view></view>
-      </view>
-      <view>
-        <view class="card-row-2">
-          <text class="exp-text">40</text>
-          成长值
-        </view>
-        <progress percent="6.5" show-info stroke-width="10" color="#10AEFF"/>
-      </view>
-      <view>
-        <view class="card-row-3">
-          <view class="exp-extra">再获得 9960 成长值成为 VIP 2</view>
-        </view>
       </view>
     </view>
   </view>
@@ -76,26 +54,33 @@
       </view>
     </view>
     <view class="cu-item arrow">
+      <view class="content" bindtap="toMumberCenterPage">
+        <text class="cuIcon-crown text-grey"></text>
+        <text class="text-grey">鲸禧之家 </text>
+        <text class="text-gray text-sm"> （会员中心）</text>
+      </view>
+    </view>
+    <view class="cu-item arrow">
       <view class="content" bindtap="toCartCart">
-        <text class="cuIcon-github text-grey"></text>
+        <text class="cuIcon-cart text-grey"></text>
         <text class="text-grey">购物车</text>
       </view>
     </view>
     <view class="cu-item arrow">
       <view class="content" bindtap="toAddressList">
-        <text class="cuIcon-github text-grey"></text>
+        <text class="cuIcon-deliver text-grey"></text>
         <text class="text-grey">地址管理</text>
       </view>
     </view>
     <view class="cu-item arrow">
       <view class="content" bindtap="toFootprint">
-        <text class="cuIcon-appreciatefill text-red"></text>
+        <text class="cuIcon-footprint text-grey"></text>
         <text class="text-grey">我的足迹</text>
       </view>
     </view>
     <view class="cu-item arrow">
       <navigator class="content" url="/pages/ucenter/about/index" hover-class="none">
-        <text class="cuIcon-github text-grey"></text>
+        <text class="cuIcon-news text-grey"></text>
         <text class="text-grey">关于我们</text>
       </navigator>
     </view>
@@ -108,6 +93,7 @@
     </view> -->
   </view>
 
+  <!-- 公共页脚商标（可考虑封装为公共组件引入） -->
   <view class="company">
     <view class="c-wrap" bindtap="getOrderInfo">
       <view class="text">鲸禧控卡</view>
