@@ -145,11 +145,6 @@ page {
     margin-right: 20rpx;
 }
 
-.list-top-wrap .status .order-status {
-    color: #ff3456;
-    font-size: 28rpx;
-}
-
 .order-list-wrap .goods-list {
     width: 100%;
     background-color: #fff;
@@ -252,10 +247,8 @@ page {
     border-radius: 6rpx;
     font-size: 24rpx;
     color: #fff;
-    background: linear-gradient(to right, #ff3456, #ff347d);
     height: 50rpx;
     line-height: 50rpx;
-    border: 1rpx solid #ff3456;
     margin-right: 24rpx;
 }
 

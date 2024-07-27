@@ -69,7 +69,7 @@ page {
   text-align: center;
 }
 
-.float-cart-wrap .cuIcon-goods {
+.float-cart-wrap .cuIcon-goodsnew {
   font-size: 60rpx;
 }
 

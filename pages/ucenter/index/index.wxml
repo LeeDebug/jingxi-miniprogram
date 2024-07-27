@@ -47,40 +47,41 @@
 
   <!-- 常用功能 -->
   <view class="cu-list menu card-menu margin-top-lg margin-bottom-xl shadow-lg radius">
-    <view class="cu-item">
-      <view class='top-title'>
-        <view class='left-line theme-background-color'></view>
-        <view class='text'>常用功能</view>
+    <view class="cu-item cu-bar top-title">
+      <view class='action sub-title'>
+        <text class='cuIcon-titles text-blue'></text>
+        <text class="text-xl text-bold text-blue" style="letter-spacing: 20rpx;">常用功能</text>
+        <text class="text-ABC text-grey margin-left">Function</text>
       </view>
     </view>
     <view class="cu-item arrow">
       <view class="content" bindtap="toMumberCenterPage">
-        <text class="cuIcon-crown text-grey"></text>
+        <text class="cuIcon-crown text-red"></text>
         <text class="text-grey">鲸禧之家 </text>
         <text class="text-gray text-sm"> （会员中心）</text>
       </view>
     </view>
     <view class="cu-item arrow">
       <view class="content" bindtap="toCartCart">
-        <text class="cuIcon-cart text-grey"></text>
+        <text class="cuIcon-cart text-mauve"></text>
         <text class="text-grey">购物车</text>
       </view>
     </view>
     <view class="cu-item arrow">
       <view class="content" bindtap="toAddressList">
-        <text class="cuIcon-deliver text-grey"></text>
+        <text class="cuIcon-deliver text-green"></text>
         <text class="text-grey">地址管理</text>
       </view>
     </view>
     <view class="cu-item arrow">
       <view class="content" bindtap="toFootprint">
-        <text class="cuIcon-footprint text-grey"></text>
+        <text class="cuIcon-footprint text-orange"></text>
         <text class="text-grey">我的足迹</text>
       </view>
     </view>
     <view class="cu-item arrow">
       <navigator class="content" url="/pages/ucenter/about/index" hover-class="none">
-        <text class="cuIcon-news text-grey"></text>
+        <text class="cuIcon-news text-cyan"></text>
         <text class="text-grey">关于我们</text>
       </navigator>
     </view>

@@ -4259,7 +4259,7 @@ movable-view.indexBar-item::before {
   position: absolute;
   left: 0;
   top: 0;
-  background: linear-gradient(35deg, var(--orange), var(--pink));
+  background: linear-gradient(35deg, var(--blue), var(--mauve));
   -webkit-mask: radial-gradient(circle at 20rpx 65%, transparent 20rpx, red 0) -20rpx;
   /* red 0 ：后面颜色的位置只需要小于等于前面颜色的位置就行了 */
   mask: radial-gradient(circle at 20rpx 65%, transparent 20rpx, red 0) -20rpx;

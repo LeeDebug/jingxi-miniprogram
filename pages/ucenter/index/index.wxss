@@ -112,15 +112,13 @@ page {
   color: #999;
 }
 
+.card-menu .cu-item.arrow:before {
+  color: var(--theme-color) !important;
+}
+
 /* 常用功能 */
 .top-title {
-  width: 200rpx;
-  height: 90rpx;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  font-size: 40rpx;
-  font-weight: 600;
+  padding: 0 !important;
 }
 
 .top-title .left-line {

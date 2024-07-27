@@ -2,6 +2,11 @@
 const util = require('../../utils/util.js');
 const api = require('../../config/api.js');
 
+let leftHeight = 0;
+let rightHeight = 0;
+let leftData = [];
+let rightData = [];
+
 Page({
 
   data: {
@@ -25,9 +30,36 @@ Page({
     loading: 0,
     autoplay: true,
     showContact: 1,
+    // 瀑布流
+    leftData: [],
+    rightData: [],
+    orgData: [{
+        image: "https://image.meiye.art/pic_0NF_MgX2DptxYFGoM0SUv?imageMogr2/thumbnail/450x/interlace/1"
+      },
+      {
+        image: "https://image.meiye.art/pic_AcXKfK5Fr6Dl5i_tr5Vwy?imageMogr2/thumbnail/450x/interlace/1"
+      },
+      {
+        image: "https://image.meiye.art/pic_6vP65kAdE8pqGbI9cqYNm?imageMogr2/thumbnail/450x/interlace/1"
+      },
+      {
+        image: "https://image.meiye.art/pic__Y1hiTPzdjSL1bvsUODgK?imageMogr2/thumbnail/450x/interlace/1"
+      },
+      {
+        image: "https://image.meiye.art/pic_z7UntCMyEWdzIGVQUhfBu?imageMogr2/thumbnail/450x/interlace/1"
+      },
+      {
+        image: "https://image.meiye.art/pic_sKe8npGuQpHFSHa3HS91t?imageMogr2/thumbnail/450x/interlace/1"
+      },
+      {
+        image: "https://image.meiye.art/pic_j-BV0e4xP0zOHz2WNgBac?imageMogr2/thumbnail/450x/interlace/1"
+      }
+    ]
+
   },
 
   onLoad: function (options) {
+    this.create(this.data.orgData)
   },
 
   onShow: function () {
@@ -47,6 +79,16 @@ Page({
         autoplay: true
     });
     wx.removeStorageSync('categoryId');
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload() {
+    leftHeight = 0;
+    rightHeight = 0;
+    leftData = [];
+    rightData = [];
   },
 
   onPageScroll: function (e) {
@@ -132,5 +174,40 @@ Page({
       }
     })
   },
+
+  create(data) {
+    let promiseArr = [];
+    for (let i in data) {
+      let p = new Promise((resolve, reject) => {
+        wx.getImageInfo({
+          src: data[i].image,
+          complete: (res) => {
+            let proportion = res.height / res.width;
+            data[i].height = 375 * proportion;
+            resolve(data[i])
+          }
+        })
+      })
+      promiseArr.push(p)
+    }
+    Promise.all(promiseArr).then(res => {
+      this.sort(res);
+      this.setData({
+        leftData,
+        rightData
+      })
+    })
+  },
+  sort(data) {
+    data.forEach(item => {
+      if (leftHeight <= rightHeight) {
+        leftHeight += item.height;
+        leftData.push(item)
+      } else {
+        rightHeight += item.height;
+        rightData.push(item);
+      }
+    });
+  }
 
 })

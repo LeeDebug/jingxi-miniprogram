@@ -29,8 +29,13 @@
   </swiper>
 
   <!-- 店铺 Slogan 大图片 -->
-  <view>
+  <!-- <view>
     TODO: 展示店铺的 Slogan 大图片
+  </view> -->
+
+  <view class="homepage-waterfall">
+    <image src="https://i.imgur.com/FEk80P1.jpg" mode="widthFix"/>
+    <image src="https://i.imgur.com/NaZNYAG.png" mode="widthFix"/>
   </view>
 
 </view>

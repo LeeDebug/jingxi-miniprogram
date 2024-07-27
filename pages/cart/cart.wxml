@@ -38,7 +38,7 @@
 			<image class='cart-empty' src='/images/icon/cart-empty.png'></image>
 		</view>
 		<view class='cart-empty-txt'>车里什么都没有，快去买一点吧</view>
-		<view class="to-index-btn" bindtap="toIndexPage">
+		<view class="to-index-btn bg-blue" bindtap="toIndexPage">
 			去逛逛
 		</view>
 	</view>

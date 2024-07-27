@@ -84,7 +84,7 @@
           <view class="flex justify-between">
             <view class="text-red text-xl text-bold">
               <!-- 小数点前的金额 字大 -->
-              <text class="text-price ">{{ good.price_before_point + '.' }}</text>
+              <text class="text-price">{{ good.price_before_point + '.' }}</text>
               <!-- 小数点后的金额 字小 -->
               <text class="text-sm">{{ good.price_after_point }}</text>
             </view>
@@ -92,7 +92,7 @@
             <!-- 步进器（商品±1） -->
             <view class="cu-capsule radius-lg round">
               <view class="cu-tag line-green" wx:if="{{ goodsOnCartNumber[good.id] }}">+{{ goodsOnCartNumber[good.id] }}</view>
-              <view class="cu-tag bg-green">选规格</view>
+              <view class="cu-tag bg-blue">选规格</view>
             </view>
           </view>
         </view>
@@ -114,6 +114,6 @@
 
 <!-- 左下角浮动购物车图标 -->
 <view class="float-cart-wrap shadow-blur" bindtap="gotoCartPage">
-  <text class="cuIcon-goods text-blue"></text>
+  <text class="cuIcon-goodsnew text-blue"></text>
   <text class="cu-tag badge">{{ cartTotal }}</text>
 </view>
