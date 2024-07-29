@@ -300,6 +300,7 @@ Page({
     })
   },
   VerticalMain(e) {
+    console.log('\nfunc VerticalMain !')
     let that = this;
     let list = this.data.list;
     let tabHeight = 0;
@@ -320,8 +321,11 @@ Page({
       })
     }
     let scrollTop = e.detail.scrollTop + 20;
+    console.log('func VerticalMain -> scrollTop: ', scrollTop)
     for (let i = 0; i < list.length; i++) {
+      console.log('func VerticalMain -> list[i]: ', list[i])
       if (scrollTop > list[i].top && scrollTop < list[i].bottom) {
+        console.log('func VerticalMain -> (list[i].id - 1) * 50: ', (list[i].id - 1) * 50)
         that.setData({
           VerticalNavTop: (list[i].id - 1) * 50,
           TabCur: list[i].id

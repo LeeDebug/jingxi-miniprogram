@@ -60,6 +60,11 @@ Page({
 
   onLoad: function (options) {
     this.create(this.data.orgData)
+
+    /**
+     * 如果是被邀请注册的，则将数据存储到本地，等注册时带上推荐人的 user_id 数据
+     */
+    console.log('options:\n', options)
   },
 
   onShow: function () {
@@ -68,15 +73,18 @@ Page({
     var that = this;
     let userInfo = wx.getStorageSync('userInfo');
     if (userInfo != '') {
-        that.setData({
-            userInfo: userInfo,
-        });
+      that.setData({
+        userInfo: userInfo,
+      });
     };
+
+    // 如果优惠券为 0 则提示获得抽奖机会？？？
+
     let info = wx.getSystemInfoSync();
     let sysHeight = info.windowHeight - 100;
     this.setData({
-        sysHeight: sysHeight,
-        autoplay: true
+      sysHeight: sysHeight,
+      autoplay: true
     });
     wx.removeStorageSync('categoryId');
   },
@@ -106,18 +114,18 @@ Page({
   },
 
   onHide: function () {
-      this.setData({
-          autoplay: false
-      })
+    this.setData({
+      autoplay: false
+    })
   },
 
   onShareAppMessage: function () {
-      let info = wx.getStorageSync('userInfo');
-      return {
-          title: '鲸禧控卡',
-          desc: '开源微信小程序商城',
-          path: '/pages/index/index?id=' + info.id
-      }
+    let info = wx.getStorageSync('userInfo');
+    return {
+      title: '鲸禧控卡',
+      desc: '开源微信小程序商城',
+      path: '/pages/index/index?referrer_user_id=' + info.id
+    }
   },
 
   /**
@@ -131,31 +139,31 @@ Page({
   },
 
   getIndexData () {
-      let that = this;
-      // 即 index/appInfo 接口
-      util.request(api.IndexUrl).then(function (res) {
-          if (res.errno === 0) {
-              that.setData({
-                  // floorGoods: res.data.categoryList,
-                  banner: res.data.banner,
-                  // channel: res.data.channel,
-                  // notice: res.data.notice,
-                  loading: 1,
-              });
-              let cartGoodsCount = '';
-              if (res.data.cartCount == 0) {
-                  // wx.removeTabBarBadge({
-                  //     index: 2,
-                  // })
-              } else {
-                  cartGoodsCount = res.data.cartCount + '';
-                  // wx.setTabBarBadge({
-                  //     index: 2,
-                  //     text: cartGoodsCount
-                  // })
-              }
-          }
-      });
+    let that = this;
+    // 即 index/appInfo 接口
+    util.request(api.IndexUrl).then(function (res) {
+      if (res.errno === 0) {
+        that.setData({
+          // floorGoods: res.data.categoryList,
+          banner: res.data.banner,
+          // channel: res.data.channel,
+          // notice: res.data.notice,
+          loading: 1,
+        });
+        let cartGoodsCount = '';
+        if (res.data.cartCount == 0) {
+          // wx.removeTabBarBadge({
+          //   index: 2,
+          // })
+        } else {
+          cartGoodsCount = res.data.cartCount + '';
+          // wx.setTabBarBadge({
+          //   index: 2,
+          //   text: cartGoodsCount
+          // })
+        }
+      }
+    });
   },
 
   /**

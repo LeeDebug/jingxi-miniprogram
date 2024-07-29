@@ -5,6 +5,34 @@ page {
   background-color: white;
 }
 
+/* 垂直导航 */
+.c-verticalnav {
+  /* border: 1px solid blue; */
+  height: calc(100vh - 420rpx);
+}
+
+.c-verticalnav .cu-vertical-nav {
+  /* border: 1px solid purple; */
+  /* height: 100% !important; */
+  /* overflow: hidden; */
+}
+
+.c-verticalnav .bg-ghostWhite {
+  /* border: 1px solid magenta; */
+  /* height: 100% !important; */
+  /* overflow: hidden; */
+}
+
+/* 右侧商品列表中，把分类标题固定到顶部 */
+.cate-title-fixed {
+  position: fixed;
+  top: 390rpx;
+  z-index: 20;
+  width: calc(100% - 200rpx);
+  margin: 10rpx 0;
+  /* border: 1px solid red; */
+}
+
 .goods-cu-item {
   /* border: 1px solid red; */
   padding: 12rpx 20rpx 12rpx 12rpx !important;

@@ -24,22 +24,23 @@
 
 
 <!-- 垂直索引 菜单列表 -->
-<view class="flex margin-top-xs">
+<view class="flex margin-top-xs c-verticalnav">
 
   <!-- 左侧商品分类列表 -->
-  <scroll-view class="cu-vertical-nav nav cu-timeline" scroll-y scroll-with-animation scroll-top="{{cu-vertical-navTop}}" style="height:calc(100vh - 375rpx)">
-    <view class="cu-item {{item.id==TabCur?'text-blue cur':''}}" wx:for="{{list}}" wx:key="item" bindtap='tabSelect' data-id="{{item.id}}"style="letter-spacing: 10rpx;">
+  <scroll-view class="cu-vertical-nav nav cu-timeline" scroll-y scroll-with-animation scroll-top="{{cu-vertical-navTop}}">
+    <view class="cu-item {{item.id==TabCur?'text-blue cur':'text-gray'}}" wx:for="{{list}}" wx:key="item" bindtap='tabSelect' data-id="{{item.id}}"style="letter-spacing: 10rpx;">
       {{item.name}}
     </view>
   </scroll-view>
 
   <!-- 右侧商品滚动列表 -->
-  <scroll-view class="bg-ghostWhite" scroll-y scroll-with-animation style="height:calc(100vh - 375rpx)" scroll-into-view="main-{{MainCur}}" bindscroll="VerticalMain">
+  <scroll-view class="bg-ghostWhite" scroll-y scroll-with-animation scroll-into-view="main-{{MainCur}}" bindscroll="VerticalMain">
     <view class="padding-top padding-lr" wx:for="{{list}}" wx:key="item" id="main-{{item.id}}">
       <!-- 每一级的最上面，先循环了一层 左侧分类列表 -->
-      <view class='cu-bar solid-bottom bg-white'>
-        <view class='action sub-title'>
-          <text class='cuIcon-titles text-blue'></text>
+      <view class="cu-bar solid-bottom bg-white {{ (item.id == TabCur) ? 'cate-title-fixed-' : '' }}">
+        <view class="action sub-title">
+          <text class="cuIcon-titles text-blue"></text>
+          <!-- TODO: 尝试用 TabCur 来判断是否 fixed 固定 -->
           <text class="text-xl text-bold text-blue" style="letter-spacing: 20rpx;">{{ item.name }}</text>
           <text class="text-ABC text-grey margin-left">JingXi</text>
         </view>
@@ -62,7 +63,7 @@
         <view class="content" class="flex flex-column justify-between goods-content">
           <!-- 商品名称 -->
           <view class="flex text-df">
-            <text class="text-cut">{{ good.name }}</text>
+            <text class="text-cut text-black text-bold">{{ good.name }}</text>
             <!-- <view class="cu-tag round bg-orange sm">下播</view> -->
           </view>
 
@@ -110,6 +111,7 @@
 
     </view>
   </scroll-view>
+
 </view>
 
 <!-- 左下角浮动购物车图标 -->
