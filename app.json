@@ -30,7 +30,10 @@
     "pages/ucenter/points/index",
     "pages/ucenter/balance/index",
     "components/empty-page/index",
-    "pages/index/original"
+    "pages/index/original",
+    "pages/ucenter/invitations/index",
+    "pages/ucenter/mumber/interests/index",
+    "pages/ucenter/mumber/upgrade-gifts/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -58,6 +61,12 @@
         "text": "点菜"
       },
       {
+        "pagePath": "pages/ucenter/mumber/index",
+        "iconPath": "images/nav/icon-erweima.png",
+        "selectedIconPath": "images/nav/icon-erweima-checked.png",
+        "text": "会员码"
+      },
+      {
         "pagePath": "pages/ucenter/order-list/index",
         "iconPath": "images/nav/icon-dingdan.png",
         "selectedIconPath": "images/nav/icon-dingdan-checked.png",
@@ -77,6 +86,10 @@
   ],
   "usingComponents": {
     "cu-custom": "/colorui/components/cu-custom"
+  },
+  "sharingInfo": {
+    "shareAppMessage": true,
+    "shareTicket": true
   },
   "sitemapLocation": "sitemap.json"
 }

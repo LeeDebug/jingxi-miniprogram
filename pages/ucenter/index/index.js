@@ -26,75 +26,59 @@ Page({
 
   // 前往 我的钱包
   togoBalancePage() {
-    let res = util.loginNow();
-    if (res == true) {
-      wx.navigateTo({
-        url: '/pages/ucenter/balance/index',
-      });
-    }
+    if (!util.loginNow()) return false
+    wx.navigateTo({
+      url: '/pages/ucenter/balance/index',
+    });
   },
 
   // 前往 积分中心
   togoPointsPage() {
-    let res = util.loginNow();
-    if (res == true) {
-      wx.navigateTo({
-        url: '/pages/ucenter/points/index',
-      });
-    }
+    if (!util.loginNow()) return false
+    wx.navigateTo({
+      url: '/pages/ucenter/points/index',
+    });
   },
 
   // 前往 我的优惠券
   togoCouponsPage() {
-    let res = util.loginNow();
-    if (res == true) {
-      wx.navigateTo({
-        url: '/pages/ucenter/coupons/my',
-      });
-    }
+    if (!util.loginNow()) return false
+    wx.navigateTo({
+      url: '/pages/ucenter/coupons/my',
+    });
   },
   // 前往会员中心
   toMumberCenterPage: function (e) {
-    let res = util.loginNow();
-    if (res == true) {
-      wx.navigateTo({
-        url: '/pages/ucenter/mumber/index',
-      });
-    }
+    if (!util.loginNow()) return false
+    wx.switchTab({
+      url: '/pages/ucenter/mumber/index',
+    });
   },
   toOrderListTap: function (event) {
-    let res = util.loginNow();
-    if (res == true) {
-      let showType = event.currentTarget.dataset.index;
-      wx.setStorageSync('showType', showType);
-      wx.switchTab({
-        url: '/pages/ucenter/order-list/index?showType=' + showType,
-      });
-    }
+    if (!util.loginNow()) return false
+    let showType = event.currentTarget.dataset.index;
+    wx.setStorageSync('showType', showType);
+    wx.switchTab({
+      url: '/pages/ucenter/order-list/index?showType=' + showType,
+    });
   },
   toCartCart: function (e) {
-    let res = util.loginNow();
-    if (res == true) {
-      wx.navigateTo({
-        url: '/pages/cart/cart',
-      });
-    }
+    if (!util.loginNow()) return false
+    wx.navigateTo({
+      url: '/pages/cart/cart',
+    });
   },
   toAddressList: function (e) {
-    let res = util.loginNow();
-    if (res == true) {
-      wx.navigateTo({
-        url: '/pages/ucenter/address/index?type=0',
-      });
-    }
+    if (!util.loginNow()) return false
+    wx.navigateTo({
+      url: '/pages/ucenter/address/index?type=0',
+    });
   },
   toFootprint: function (e) {
-    let res = util.loginNow();
-    if (res == true) {
-      wx.navigateTo({
-        url: '/pages/ucenter/footprint/index',
-      });
-    }
+    if (!util.loginNow()) return false
+    wx.navigateTo({
+      url: '/pages/ucenter/footprint/index',
+    });
   },
   goAuth: function (e) {
     wx.navigateTo({
@@ -140,6 +124,7 @@ Page({
     });
   },
   onLoad: function (options) {
+    util.loginNow()
     // 取消自动登录？？？
     // this.goAuth();
   },

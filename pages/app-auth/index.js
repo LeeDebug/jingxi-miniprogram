@@ -8,10 +8,10 @@ Page({
   data: {
 
   },
-  onLoad: function (options) {
+  onLoad (options) {
 
   },
-  onShow: function () {
+  onShow () {
     let userInfo = wx.getStorageSync('userInfo');
     if (userInfo != '') {
       wx.navigateBack();

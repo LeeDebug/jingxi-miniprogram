@@ -81,7 +81,9 @@ Page({
             url: '/pages/index/index'
         });
     },
-    onLoad: function() {},
+    onLoad: function() {
+      util.loginNow()
+    },
     onShow: function() {
         let showType = wx.getStorageSync('showType') || 2;
         let nowShowType = this.data.showType;

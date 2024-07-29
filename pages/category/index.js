@@ -53,6 +53,8 @@ Page({
    * 生命周期函数 -- 监听页面加载
    */
   onLoad(options) {
+    util.loginNow()
+
     // 获取时令菜单列表
     this.getSeasonalMenuList()
 

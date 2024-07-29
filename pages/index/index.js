@@ -58,7 +58,9 @@ Page({
 
   },
 
-  onLoad: function (options) {
+  onLoad (options) {
+    util.loginNow()
+
     this.create(this.data.orgData)
 
     /**
