@@ -66,7 +66,7 @@ Page({
     /**
      * 如果是被邀请注册的，则将数据存储到本地，等注册时带上推荐人的 user_id 数据
      */
-    console.log('options:\n', options)
+    console.log('[index page] onLoad -> options:\n', options)
   },
 
   onShow: function () {

@@ -37,6 +37,25 @@ function formatTimeNum(number, format) {
     return format;
 }
 
+/**
+ * 判断某个日期是否是今日
+ * @param {datetime} dateString 时间
+ */
+function isToday(dateString) {
+  // 解析日期字符串为 Date 对象
+  const parsedDate = new Date(dateString);
+  
+  // 获取今天的日期
+  const today = new Date();
+  today.setHours(0, 0, 0, 0); // 设置时间为 00:00:00
+  
+  // 将解析的日期设置为当天的开始
+  parsedDate.setHours(0, 0, 0, 0);
+  
+  // 比较两个日期
+  return parsedDate.getTime() === today.getTime();
+}
+
 function testMobile(num) {
     console.log
     var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1})|(16[0-9]{1})|(19[0-9]{1}))+\d{8})$/;
@@ -377,6 +396,7 @@ function getUid(prefix) {
 module.exports = {
     formatTime: formatTime,
     formatTimeNum: formatTimeNum,
+    isToday,
     request,
     redirect,
     showErrorToast,

@@ -2560,7 +2560,7 @@ egg-label>span::after {
 
 .cu-list.menu-avatar>.cu-item>.cu-avatar {
   position: absolute;
-  left: 30rpx
+  left: 0rpx
 }
 
 .cu-list.menu-avatar>.cu-item .flex .text-cut {
@@ -2569,7 +2569,7 @@ egg-label>span::after {
 
 .cu-list.menu-avatar>.cu-item .content {
   position: absolute;
-  left: 186rpx;
+  left: 156rpx;
   width: calc(100% - 136rpx - 60rpx - 120rpx);
   line-height: 1.6em;
 }

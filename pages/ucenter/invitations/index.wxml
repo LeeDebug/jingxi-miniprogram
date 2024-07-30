@@ -1,2 +1,74 @@
-<!--pages/ucenter/invitations/index.wxml-->
-<text>pages/ucenter/invitations/index.wxml</text>
+
+<!-- 邀请收益卡片 -->
+<view class="bg-white text-grey text-lg margin-sm padding-sm radius-lg shadow-warp">
+  <view class="padding-sm margin-sm radius-lg">
+
+    <!-- 第一行 -->
+    <view class="padding-xs text-center">
+      <view class="text-xl">邀请总收益</view>
+      <view class="margin-top text-sl text-red text-bold">{{ invitationInfo.all_rebate_earnings || '0.00' }}</view>
+    </view>
+
+    <!-- 第二行 -->
+    <view class=" flex justify-around padding-top-xl text-center">
+
+      <view class="">
+        <view class="">
+          <text class="cuIcon-aaa"></text> 今日邀请人数
+        </view>
+        <view class="margin-top-sm text-xxl text-black">{{ invitationInfo.today_people_count || 0 }}</view>
+      </view>
+
+      <view class="solid-right"></view>
+
+      <view class="" bindtap="togoPointsPage">
+        <view class="">
+          <text class="cuIcon-aaa"></text> 总邀请人数
+        </view>
+        <view class="margin-top-sm text-xxl text-black">{{ invitationInfo.total_people_count || 0 }}</view>
+      </view>
+
+    </view>
+
+  </view>
+</view>
+
+<!-- 邀请记录列表 -->
+
+<view class="cu-list menu-avatar margin-lr solid-blue- invitee-list">
+  <view class="cu-item padding-tb dashed-bottom solid-blue- {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{ invitationsList }}" wx:for-item="invitee" wx:key="invitee" bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" data-target="move-box-{{index}}" style="height: 200rpx;">
+
+    <!-- 左侧 用户头像 -->
+    <image wx:if="{{ invitee.invitee_user_avatar }}" class="cu-avatar round xl" src="{{ root + invitee.invitee_user_avatar }}" mode="aspectFill"></image>
+    <view wx:else class="cu-avatar cuIcon-people round xl bg-grey"></view>
+
+    <!-- 中间 主体消息 -->
+    <view class="content solid-blue-">
+      <view class="text-grey margin-left">
+        <text>{{ invitee.created_time }}</text>
+      </view>
+      <!-- 步骤条 -->
+      <view class="cu-steps steps-arrow margin-top">
+        <view class="cu-item {{ invitee.status < step.status ? '' : 'text-blue'}}" wx:for="{{basicsList}}" wx:for-item="step" wx:key="step">
+          <text class="cuIcon-{{step.icon}}"></text>
+          <text class="">{{step.status_text}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 右侧 提示语 -->
+    <view class="action flex flex-column justify-between solid-blue-" style="height: 136rpx;">
+      <view class="cu-tag radius bg-cyan text-xs padding-xs">{{ invitee.status_text }}</view>
+      <view class="margin-top">
+        <text wx:if="{{ invitee.status == 'rebated' }}" class="text-lg text-red text-bold">+ 3.50</text>
+        <text wx:else class="text-sm text-gray">钱在路上</text>
+      </view>
+    </view>
+
+    <!-- 隐藏 最右侧 操作按钮 -->
+    <view class="move">
+      <view class="bg-grey">查看详情</view>
+      <view class="bg-red">提醒他</view>
+    </view>
+  </view>
+</view>

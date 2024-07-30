@@ -13,7 +13,6 @@ Page({
     status: {},
     root: api.ApiRoot,
     is_new: 0,
-    root: api.ApiRoot
   },
   goProfile: function (e) {
     let res = util.loginNow();

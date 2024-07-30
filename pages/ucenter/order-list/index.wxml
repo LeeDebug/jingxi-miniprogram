@@ -54,7 +54,7 @@
 					<view class='price-label'>总价：¥</view>
 					<view class='price-sum'>{{item.actual_price}}</view>
 				</view>
-				<view class='trans'>(含运费 ¥{{item.freight_price}})</view>
+				<view class='trans'>（含运费 ¥{{item.freight_price}}）</view>
 			</view>
 			<!-- 待付款 -->
 			<view class="order-edit" wx:if="{{item.handleOption.cancel && item.handleOption.pay}}">
@@ -64,6 +64,6 @@
 				<view class="dele-btn">查看详情</view>
 			</view>
 		</view>
-		<view wx:if="{{showTips}}" class="no-more-goods">没有更多商品啦</view>
+		<view wx:if="{{showTips}}" class="no-more-goods">没有更多订单啦</view>
 	</view>
 </view>

@@ -1,1 +1,10 @@
 /* pages/ucenter/invitations/index.wxss */
+
+.invitee-list {}
+
+/* 覆盖用户步骤条的样式 */
+.invitee-list .cu-steps .cu-item text {
+  font-size: 20rpx;
+  height: 20rpx;
+  line-height: 20rpx;
+}
