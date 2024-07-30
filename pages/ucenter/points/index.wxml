@@ -13,5 +13,5 @@
 </view>
 
 <view class="points-body">
-  <button class="cu-btn bg-blue round margin-top-lg" bindtap="goSeasonalPage">马上去逛逛</button>
+  <button class="cu-btn bg-blue round margin-top-lg" bindtap="gotoDianCanPage">马上去逛逛</button>
 </view>

@@ -28,7 +28,7 @@
 
     <view wx:if="{{ couponsList.length == 0}}" class="list-empty">
       <view>暂无数据</view>
-      <button class="cu-btn bg-blue round margin-top-lg" bindtap="goSeasonalPage">马上去逛逛</button>
+      <button class="cu-btn bg-blue round margin-top-lg" bindtap="gotoDianCanPage">马上去逛逛</button>
     </view>
 
   </view>

@@ -54,10 +54,10 @@ App({
     },
     token: '',
   },
-  // 前往 时令菜单 页面
-  goSeasonalPage() {
-    wx.navigateTo({
-      url: '/pages/seasonal-menu/index'
+  // 前往 点餐 页面
+  gotoDianCanPage() {
+    wx.switchTab({
+      url: '/pages/category/index'
     })
   }
 })

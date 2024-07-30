@@ -18,7 +18,7 @@ Page({
 
   },
 
-  // 前往 时令菜单 页面
-  goSeasonalPage: app.goSeasonalPage,
+  // 前往 点餐 页面
+  gotoDianCanPage: app.gotoDianCanPage,
 
 })

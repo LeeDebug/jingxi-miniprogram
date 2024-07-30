@@ -28,7 +28,7 @@
 </view>
 
 <!-- 会员功能 -->
-<view class="cu-list menu {{menuBorder?'sm-border':''}} {{menuCard?'card-menu margin-top':''}} padding radius">
+<view class="cu-list menu {{ menuBorder ? 'sm-border' : '' }} {{ menuCard ? 'card-menu margin-top' : '' }} padding radius">
   <view class="cu-bar bg-white solid-bottom radius">
     <view class="action">
       <text class="cuIcon-titles text-blue"></text>

@@ -70,8 +70,8 @@ Page({
     this.getCouponsList({ coupon_type: this.data.curTabIdx });
   },
 
-  // 前往 时令菜单 页面
-  goSeasonalPage: app.goSeasonalPage,
+  // 前往 点餐 页面
+  gotoDianCanPage: app.gotoDianCanPage,
 
   // 前往 领券中心 页面
   gotoGetCouponsCenter() {
