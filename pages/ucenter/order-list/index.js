@@ -13,7 +13,8 @@ Page({
         showType: 9,
         hasOrder: 0,
         showTips: 0,
-        status: {}
+        status: {},
+        d_num: 3,
     },
     toOrderDetails: function(e) {
         let orderId = e.currentTarget.dataset.id;
@@ -160,5 +161,9 @@ Page({
             'allPage': that.data.allPage + 1
         });
         that.getOrderList();
-    }
+    },
+
+  // 前往 点餐 页面
+  gotoDianCanPage: app.gotoDianCanPage,
+
 })
