@@ -1,5 +1,5 @@
 <!-- 会员卡 大卡片 -->
-<view class="flex solid-bottom margin-top justify-center">
+<view class="flex margin-top justify-center">
   <view class="cu-coupon-box radius-lg padding-sm">
     <view class="flex justify-between">
       <view class="text-white text-xl text-bold">鲸禧之家会员卡</view>
@@ -27,7 +27,7 @@
   </view>
 </view>
 
-<!-- 权益按钮 -->
+<!-- 会员功能 -->
 <view class="cu-list menu {{menuBorder?'sm-border':''}} {{menuCard?'card-menu margin-top':''}} padding radius">
   <view class="cu-bar bg-white solid-bottom radius">
     <view class="action">
@@ -61,11 +61,14 @@
       <text class="text-grey">会员权益</text>
     </view>
     <view class="action">
-      <text class="text-grey text-sm">当前可享 4 项</text>
+      <view class="cu-tag round bg-orange light">优惠</view>
+      <view class="cu-tag round bg-olive light">减免</view>
+      <view class="cu-tag round bg-blue light">打卡</view>
+      <!-- <text class="text-grey text-sm">当前可享 4 项</text> -->
     </view>
   </view>
 
-  <view class="cu-item arrow" bindtap="toUpgradeGiftsPage">
+  <view wx:if="{{ false }}" class="cu-item arrow" bindtap="toUpgradeGiftsPage">
     <view class="content">
       <text class="cuIcon-present text-red"></text>
       <text class="text-grey">升级礼包</text>
@@ -81,6 +84,43 @@
     <view class="content">
       <text class="cuIcon-warn text-green"></text>
       <text class="text-grey">敬请期待更多功能...</text>
+    </view>
+  </view>
+</view>
+
+<!-- 当月订餐日历 -->
+<view class="padding-lr" style="height: 660rpx;">
+  <view class="bg-white radius-lg">
+    <view class="bg-blue radius-lg-top text-center light flex justify-between padding">
+      <!-- <view class="text-xl" bindtap="last"><text class="cuIcon-back"></text></view> -->
+      <view></view>
+      <view class="text-lg">
+        {{year}} 年 {{month}} 月配餐日历
+        <text class="text-sm text-gray margin-left-xs">( 共 {{ curMonthDeliverNumber }} 餐 )</text>
+      </view>
+      <view></view>
+      <!-- <view class="text-xl" bindtap="next"><text class="cuIcon-right"></text></view> -->
+    </view>
+    <view class="padding-xs">
+      <view class="flex justify-around padding-tb-xs">
+        <view class="padding-lr-sm">Mon</view>
+        <view class="padding-lr-sm">Tue</view>
+        <view class="padding-lr-sm">Wen</view>
+        <view class="padding-lr-sm">Thu</view>
+        <view class="padding-lr-sm">Fri</view>
+        <view class="padding-lr-sm text-grey">Sat</view>
+        <view class="padding-lr-sm text-grey">Sun</view>
+      </view>
+      <view class="calendar-main-center flex flex-wrap">
+        <view wx:for="{{spacesBeforeDays}}" wx:key="item"></view>
+        <view wx:for="{{daysList}}" wx:key="item" data-today="{{item.day}}" bindtap="click" class="{{ (year + '-' + month + '-' + item.day) == current_day ? 'bg-blue padding radius light text-bold' : ''}} flex" style="height: 80rpx;">
+          <view class="flex flex-wrap {{ item.is_distributed ? 'text-blue' : '' }}">
+            {{item.day}}
+            <!-- 显示当天是否配送 -->
+            <view class="flex text-xs {{ item.is_distributed ? 'cuIcon-check' : '' }}" style="margin-top: -10rpx; padding-bottom: 8rpx;"></view>
+          </view>
+        </view>
+      </view>
     </view>
   </view>
 </view>
