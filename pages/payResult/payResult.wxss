@@ -60,8 +60,6 @@ page {
     margin: 0 auto;
 }
 .to-order-btn {
-    color: #fff;
-    background: linear-gradient(to right, #ff3456, #ff347d);
     border-radius: 0px;
     width: 300rpx;
     height: 80rpx;

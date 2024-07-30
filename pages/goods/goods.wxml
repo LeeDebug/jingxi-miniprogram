@@ -148,7 +148,7 @@
     </view>
     <block wx:if="{{goods.goods_number > 0 && goods.is_on_sale == 1}}">
         <block wx:if="{{goodsNumber > 0}}">
-            <view class="to-cart-btn bg-yellow light" bindtap='addToCart'>加入购物车</view>
+            <view class="to-cart-btn bg-gray" bindtap='addToCart'>加入购物车</view>
             <view class="to-pay-btn bg-blue" bindtap='fastToCart'>立即购买</view>
         </block>
         <block wx:if="{{goodsNumber <= 0 }}">

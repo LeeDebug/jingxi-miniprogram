@@ -9,6 +9,8 @@ page {
 .c-verticalnav {
   /* border: 1px solid blue; */
   height: calc(100vh - 420rpx);
+  /* 这样才能让 sticky 起效果，否则滚动一个屏幕 sticky 就消失了 */
+  overflow: hidden;
 }
 
 .c-verticalnav .cu-vertical-nav {
@@ -21,6 +23,15 @@ page {
   /* border: 1px solid magenta; */
   /* height: 100% !important; */
   /* overflow: hidden; */
+}
+
+/* 利用 将标题固定在列表顶部 */
+.sticky-header {
+  position: sticky;
+  top: 100rpx; /* 距离顶部的距离 */
+  background-color: #f8f8f8;
+  padding: 10px;
+  z-index: 100; /* 确保元素在其他元素之上 */
 }
 
 /* 右侧商品列表中，把分类标题固定到顶部 */

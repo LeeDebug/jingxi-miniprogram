@@ -573,7 +573,6 @@
   height: 110rpx;
   width: 30%;
   line-height: 100rpx;
-  color: #192841;
   font-size: 28rpx;
   text-align: center;
   font-weight: 500;

@@ -7,7 +7,7 @@
             <view class="success-text">付款成功</view>
             <view class="success-text">老板娘马上开始炒菜</view>
         </view>
-        <view class="to-order-btn" bindtap="toIndex">
+        <view class="to-order-btn bg-blue" bindtap="toIndex">
             继续逛逛
         </view>
         <view class='btn-go-order' bindtap="toUCenterPage">返回个人中心</view>
@@ -23,7 +23,7 @@
                 <view class='contact'>联系客服</view>
             </button>
         </view>
-        <view class="to-order-btn" bindtap="payOrder">
+        <view class="to-order-btn bg-blue" bindtap="payOrder">
             重新付款
         </view>
         <view class='btn-go-order' bindtap="toUCenterPage">返回个人中心</view>

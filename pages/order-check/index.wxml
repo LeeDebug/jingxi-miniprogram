@@ -116,7 +116,7 @@
         <view class="pay-money">¥ {{actualPrice}}</view>
       </view>
       <button wx:if="{{payMethod == 0}}" class="to-pay-btn" bindtap='offlineOrder'>提交订单</button>
-      <button wx:else class="to-pay-btn" bindtap='submitOrder'>立即支付</button>
+      <button wx:else class="to-pay-btn bg-blue" bindtap='submitOrder'>立即支付</button>
     </view>
 	</view>
 

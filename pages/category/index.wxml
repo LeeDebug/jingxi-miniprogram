@@ -28,13 +28,18 @@
 
   <!-- 左侧商品分类列表 -->
   <scroll-view class="cu-vertical-nav nav cu-timeline" scroll-y scroll-with-animation scroll-top="{{cu-vertical-navTop}}">
-    <view class="cu-item {{item.id==TabCur?'text-blue cur':'text-gray'}}" wx:for="{{list}}" wx:key="item" bindtap='tabSelect' data-id="{{item.id}}"style="letter-spacing: 10rpx;">
+    <view class="cu-item {{item.id==TabCur?'text-blue cur':'text-gray'}}" wx:for="{{list}}" wx:key="item" bindtap='tabSelect' data-id="{{item.id}}" style="letter-spacing: 10rpx;">
       {{item.name}}
     </view>
   </scroll-view>
 
   <!-- 右侧商品滚动列表 -->
   <scroll-view class="bg-ghostWhite" scroll-y scroll-with-animation scroll-into-view="main-{{MainCur}}" bindscroll="VerticalMain">
+
+    <!-- <view class="sticky-header" wx:if="{{ true }}">
+      分类名称{{scrollViewHeight}}
+    </view> -->
+
     <view class="padding-top padding-lr" wx:for="{{list}}" wx:key="item" id="main-{{item.id}}">
       <!-- 每一级的最上面，先循环了一层 左侧分类列表 -->
       <view class="cu-bar solid-bottom bg-white {{ (item.id == TabCur) ? 'cate-title-fixed-' : '' }}">
@@ -52,60 +57,60 @@
       <!-- 然后再循环出每一个商品分类的商品 -->
       <view class="cu-list menu-avatar">
 
-      <!-- #region 商品 for 循环 -->
-      <view class="cu-item goods-cu-item" wx:for="{{ goodsListObj[item.id] }}" wx:for-item="good" wx:key="id">
+        <!-- #region 商品 for 循环 -->
+        <view class="cu-item goods-cu-item" wx:for="{{ goodsListObj[item.id] }}" wx:for-item="good" wx:key="id">
 
-        <view class="flex goods-wrap" bindtap="gotoGoodDetail" data-id="{{ good.id }}">
-        <!-- 左侧 封面 -->
-        <image class="cu-avatar xxl goods-image" src="{{ good.list_pic_url }}" mode="aspectFill"></image>
+          <view class="flex goods-wrap" bindtap="gotoGoodDetail" data-id="{{ good.id }}">
+          <!-- 左侧 封面 -->
+          <image class="cu-avatar xxl goods-image" src="{{ good.list_pic_url }}" mode="aspectFill"></image>
 
-        <!-- 中间 内容 -->
-        <view class="content" class="flex flex-column justify-between goods-content">
-          <!-- 商品名称 -->
-          <view class="flex text-df">
-            <text class="text-cut text-black text-bold">{{ good.name }}</text>
-            <!-- <view class="cu-tag round bg-orange sm">下播</view> -->
-          </view>
-
-          <!-- 商品介绍 -->
-          <view class="flex text-gray text-sm">
-            <text class="text-cut">{{ good.goods_brief }}</text>
-            <!-- <text class="text-cut">商家：<text class="cuIcon-locationfill text-orange margin-right-xs"></text>运输中...</text> -->
-          </view>
-
-          <!-- 商品库存 -->
-          <view class="flex">
-            <text class="text-cut text-gray">库存 {{ good.goods_number }}</text>
-            <text class="text-cut text-gray">丨</text>
-            <text class="text-cut text-gray">销量 {{ good.sell_volume }}</text>
-          </view>
-
-          <!-- 商品价格 + 步进器 -->
-          <!-- catchtap="handleInnerNotClickable" -->
-          <view class="flex justify-between">
-            <view class="text-red text-xl text-bold">
-              <!-- 小数点前的金额 字大 -->
-              <text class="text-price">{{ good.price_before_point + '.' }}</text>
-              <!-- 小数点后的金额 字小 -->
-              <text class="text-sm">{{ good.price_after_point }}</text>
+          <!-- 中间 内容 -->
+          <view class="content" class="flex flex-column justify-between goods-content">
+            <!-- 商品名称 -->
+            <view class="flex text-df">
+              <text class="text-cut text-black text-bold">{{ good.name }}</text>
+              <!-- <view class="cu-tag round bg-orange sm">下播</view> -->
             </view>
 
-            <!-- 步进器（商品±1） -->
-            <view class="cu-capsule radius-lg round">
-              <view class="cu-tag line-blue" wx:if="{{ goodsOnCartNumber[good.id] }}">+{{ goodsOnCartNumber[good.id] }}</view>
-              <view class="cu-tag bg-blue">选规格</view>
+            <!-- 商品介绍 -->
+            <view class="flex text-gray text-sm">
+              <text class="text-cut">{{ good.goods_brief }}</text>
+              <!-- <text class="text-cut">商家：<text class="cuIcon-locationfill text-orange margin-right-xs"></text>运输中...</text> -->
+            </view>
+
+            <!-- 商品库存 -->
+            <view class="flex">
+              <text class="text-cut text-gray">库存 {{ good.goods_number }}</text>
+              <text class="text-cut text-gray">丨</text>
+              <text class="text-cut text-gray">销量 {{ good.sell_volume }}</text>
+            </view>
+
+            <!-- 商品价格 + 步进器 -->
+            <!-- catchtap="handleInnerNotClickable" -->
+            <view class="flex justify-between">
+              <view class="text-red text-xl text-bold">
+                <!-- 小数点前的金额 字大 -->
+                <text class="text-price">{{ good.price_before_point + '.' }}</text>
+                <!-- 小数点后的金额 字小 -->
+                <text class="text-sm">{{ good.price_after_point }}</text>
+              </view>
+
+              <!-- 步进器（商品±1） -->
+              <view class="cu-capsule radius-lg round">
+                <view class="cu-tag line-blue" wx:if="{{ goodsOnCartNumber[good.id] }}">+{{ goodsOnCartNumber[good.id] }}</view>
+                <view class="cu-tag bg-blue">选规格</view>
+              </view>
             </view>
           </view>
-        </view>
 
-        </view>
+          </view>
 
-        <!-- 右侧 操作按钮（暂时隐藏） -->
-        <!-- <view class="action">
-          <text>233</text>
-        </view> -->
-      </view>
-      <!-- #endregion 商品 for 循环 -->
+          <!-- 右侧 操作按钮（暂时隐藏） -->
+          <!-- <view class="action">
+            <text>233</text>
+          </view> -->
+        </view>
+        <!-- #endregion 商品 for 循环 -->
 
       </view>
 

@@ -22,6 +22,8 @@ Page({
     goodsOnCartNumber: {},
     // 购物车总数量
     cartTotal: 0,
+    // 右侧商品列表的高度（影响 sticky 固定）
+    scrollViewHeight: 'height: 1040rpx;',
     goodsCount: 0,
     nowIndex: 0,
     nowId: 0,
@@ -302,7 +304,7 @@ Page({
     })
   },
   VerticalMain(e) {
-    console.log('\nfunc VerticalMain !')
+    // console.log('\nfunc VerticalMain !')
     let that = this;
     let list = this.data.list;
     let tabHeight = 0;
@@ -323,11 +325,14 @@ Page({
       })
     }
     let scrollTop = e.detail.scrollTop + 20;
-    console.log('func VerticalMain -> scrollTop: ', scrollTop)
+    // this.setData({
+    //   scrollViewHeight: `height: ${Math.max(scrollTop, 1040)}rpx;`,
+    // })
+    // console.log('func VerticalMain -> scrollTop: ', scrollTop)
     for (let i = 0; i < list.length; i++) {
-      console.log('func VerticalMain -> list[i]: ', list[i])
+      // console.log('func VerticalMain -> list[i]: ', list[i])
       if (scrollTop > list[i].top && scrollTop < list[i].bottom) {
-        console.log('func VerticalMain -> (list[i].id - 1) * 50: ', (list[i].id - 1) * 50)
+        // console.log('func VerticalMain -> (list[i].id - 1) * 50: ', (list[i].id - 1) * 50)
         that.setData({
           VerticalNavTop: (list[i].id - 1) * 50,
           TabCur: list[i].id
