@@ -92,7 +92,7 @@
 
             <!-- 步进器（商品±1） -->
             <view class="cu-capsule radius-lg round">
-              <view class="cu-tag line-green" wx:if="{{ goodsOnCartNumber[good.id] }}">+{{ goodsOnCartNumber[good.id] }}</view>
+              <view class="cu-tag line-blue" wx:if="{{ goodsOnCartNumber[good.id] }}">+{{ goodsOnCartNumber[good.id] }}</view>
               <view class="cu-tag bg-blue">选规格</view>
             </view>
           </view>

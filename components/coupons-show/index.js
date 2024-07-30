@@ -32,6 +32,12 @@ Component({
       })
     },
 
+    handleUseCoupon() {
+      this.triggerEvent('useCoupon', {
+        coupon: this.properties.coupon
+      })
+    },
+
     // 展开规则 or 折叠规则
     handleToggleRules() {
       this.setData({

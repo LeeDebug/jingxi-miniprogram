@@ -2,11 +2,6 @@
 const util = require('../../utils/util.js');
 const api = require('../../config/api.js');
 
-let leftHeight = 0;
-let rightHeight = 0;
-let leftData = [];
-let rightData = [];
-
 Page({
 
   data: {
@@ -30,38 +25,12 @@ Page({
     loading: 0,
     autoplay: true,
     showContact: 1,
-    // 瀑布流
-    leftData: [],
-    rightData: [],
-    orgData: [{
-        image: "https://image.meiye.art/pic_0NF_MgX2DptxYFGoM0SUv?imageMogr2/thumbnail/450x/interlace/1"
-      },
-      {
-        image: "https://image.meiye.art/pic_AcXKfK5Fr6Dl5i_tr5Vwy?imageMogr2/thumbnail/450x/interlace/1"
-      },
-      {
-        image: "https://image.meiye.art/pic_6vP65kAdE8pqGbI9cqYNm?imageMogr2/thumbnail/450x/interlace/1"
-      },
-      {
-        image: "https://image.meiye.art/pic__Y1hiTPzdjSL1bvsUODgK?imageMogr2/thumbnail/450x/interlace/1"
-      },
-      {
-        image: "https://image.meiye.art/pic_z7UntCMyEWdzIGVQUhfBu?imageMogr2/thumbnail/450x/interlace/1"
-      },
-      {
-        image: "https://image.meiye.art/pic_sKe8npGuQpHFSHa3HS91t?imageMogr2/thumbnail/450x/interlace/1"
-      },
-      {
-        image: "https://image.meiye.art/pic_j-BV0e4xP0zOHz2WNgBac?imageMogr2/thumbnail/450x/interlace/1"
-      }
-    ]
-
+    // 是否展示 领取新人礼包
+    showGFCModel: false,
   },
 
   onLoad (options) {
     util.loginNow()
-
-    this.create(this.data.orgData)
 
     /**
      * 如果是被邀请注册的，则将数据存储到本地，等注册时带上推荐人的 user_id 数据
@@ -69,7 +38,7 @@ Page({
     console.log('[index page] onLoad -> options:\n', options)
   },
 
-  onShow: function () {
+  onShow () {
     this.getIndexData();
 
     var that = this;
@@ -79,6 +48,14 @@ Page({
         userInfo: userInfo,
       });
     };
+
+    /**
+     * 如果该用户没领过优惠券，提醒去开新人礼包
+     */
+    // console.log('userInfo.coupon_count: ', userInfo.coupon_count)
+    if (!userInfo.coupon_count) {
+      this.showGetFirstCouponModel()
+    }
 
     // 如果优惠券为 0 则提示获得抽奖机会？？？
 
@@ -95,13 +72,9 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload() {
-    leftHeight = 0;
-    rightHeight = 0;
-    leftData = [];
-    rightData = [];
   },
 
-  onPageScroll: function (e) {
+  onPageScroll (e) {
     let scrollTop = e.scrollTop;
     let that = this;
     if (scrollTop >= 2000) {
@@ -115,13 +88,13 @@ Page({
     }
   },
 
-  onHide: function () {
+  onHide () {
     this.setData({
       autoplay: false
     })
   },
 
-  onShareAppMessage: function () {
+  onShareAppMessage () {
     let info = wx.getStorageSync('userInfo');
     return {
       title: '鲸禧控卡',
@@ -185,39 +158,28 @@ Page({
     })
   },
 
-  create(data) {
-    let promiseArr = [];
-    for (let i in data) {
-      let p = new Promise((resolve, reject) => {
-        wx.getImageInfo({
-          src: data[i].image,
-          complete: (res) => {
-            let proportion = res.height / res.width;
-            data[i].height = 375 * proportion;
-            resolve(data[i])
-          }
-        })
-      })
-      promiseArr.push(p)
-    }
-    Promise.all(promiseArr).then(res => {
-      this.sort(res);
-      this.setData({
-        leftData,
-        rightData
-      })
+  /**
+   * 提示领取新人礼包
+   */
+  showGetFirstCouponModel() {
+    this.setData({
+      showGFCModel: true
     })
   },
-  sort(data) {
-    data.forEach(item => {
-      if (leftHeight <= rightHeight) {
-        leftHeight += item.height;
-        leftData.push(item)
-      } else {
-        rightHeight += item.height;
-        rightData.push(item);
-      }
-    });
-  }
+  hideGFCModal() {
+    this.setData({
+      showGFCModel: false
+    })
+  },
+  /**
+   * 前往领取新人礼包页面
+   */
+  gotoFirstCoupon() {
+    if (!util.loginNow()) return false
+    wx.navigateTo({
+      url: '/pages/ucenter/coupons/first/index',
+    })
+  },
+
 
 })

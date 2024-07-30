@@ -46,6 +46,33 @@
   <view class="text">鲸鱼游呀游~</view>
 </view>
 
+<!-- 领取新人礼包弹窗 -->
+<view class="cu-modal {{ showGFCModel ? 'show' : '' }}">
+  <view class="cu-dialog bg-transparent">
+    <view class="bg-img" style="background-image: url('https://i.imgur.com/7kIdhPh.png'); height: 600rpx;">
+      <view class="cu-bar justify-end text-white">
+        <!-- 右上角 关闭按钮 -->
+        <view class="action" bindtap="hideGFCModal">
+          <text class="cuIcon-close "></text>
+        </view>
+      </view>
+      <!-- 中间优惠券的内容 -->
+      <view class="content text-black text-xxl text-bold" style="padding-right: 160rpx;transform: rotate(-0.025turn);">
+        <view class="">恭喜您，获得</view>
+        <view class="margin-top-xxl padding-top-sm">随机优惠券盲盒</view>
+      </view>
+      <view class="margin-top-xxl padding-top-sl text-sm text-white">新人优惠券：再不来找我玩，我就要消失咯！</view>
+    </view>
+    <view class="cu-bar bg-transparent">
+      <view class="action flex-sub">
+        <button class="cu-tag radius padding bg-gradual-blue text-xl"  bindtap="gotoFirstCoupon">
+          去开盲盒
+        </button>
+      </view>
+    </view>
+  </view>
+</view>
+
 <!-- 右下角浮动图标 -->
 <view class='contact-wrap' wx:if="{{showContact == 1}}">
   <button class="contact-btn" session-from='{"nickName":"{{userInfo.nickname}}","avatarUrl":"{{userInfo.avatar}}"}' open-type="contact">

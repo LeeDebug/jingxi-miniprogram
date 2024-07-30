@@ -52,14 +52,12 @@ Page({
   },
 
   // 点击领取优惠券
-  getCoupon({ detail: { coupon } }) {
-    console.log('getCoupon -> coupon:\n', coupon)
-    // util.request(api.GetCoupon, {
-    //   a: 111,
-    //   coupon_id: coupon.id
-    // }, 'POST').then((res) => {
-    //     console.log('GetCoupon => res:\n', res)
-    // })
+  useCoupon({ detail: { coupon } }) {
+    // console.log('useCoupon -> coupon:\n', coupon)
+    // 前往 点餐 页面
+    wx.switchTab({
+      url: '/pages/category/index',
+    })
   },
 
   // 切换卡片

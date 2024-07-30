@@ -33,7 +33,8 @@
     "pages/index/original",
     "pages/ucenter/invitations/index",
     "pages/ucenter/mumber/interests/index",
-    "pages/ucenter/mumber/upgrade-gifts/index"
+    "pages/ucenter/mumber/upgrade-gifts/index",
+    "pages/ucenter/coupons/first/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -58,7 +59,7 @@
         "pagePath": "pages/category/index",
         "iconPath": "images/nav/icon-diancai.png",
         "selectedIconPath": "images/nav/icon-diancai-checked.png",
-        "text": "点菜"
+        "text": "点餐"
       },
       {
         "pagePath": "pages/ucenter/mumber/index",

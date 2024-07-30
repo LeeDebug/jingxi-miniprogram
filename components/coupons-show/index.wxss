@@ -162,3 +162,12 @@
   transform: rotate(180deg);
   transition: transform 0.3s ease-in-out;
 }
+
+/* 已经被使用过的优惠券样式 */
+.is_redeemed view {
+  color: gray !important;
+}
+
+.is_redeemed .coupon-left-border {
+  background-color: gray !important;
+}

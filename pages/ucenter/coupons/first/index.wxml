@@ -1,0 +1,36 @@
+
+<view class="flex justify-center margin-top-xxl">
+  <view class="cu-overturn-box radius-lg" catchtap="showBackend" style="background-image:url(https://image.meiye.art/FiLUT-wb9DP0-dpxRQH19HJOOJOW?imageMogr2/thumbnail/450x/interlace/1);{{styleFrontend}}"></view>
+  <view class="cu-overturn-box cu-b2 radius-lg" catchtap="showFrontend" style="background-image:url(https://i.imgur.com/7kIdhPh.png);background-size: 100% 100%;{{styleBackend}}"></view>
+  <!-- https://image.meiye.art/FlqKg5bugFQD5Qzm_QhGM7ET4Mtx?imageMogr2/thumbnail/450x/interlace/1 -->
+</view>
+
+<view class="margin padding-top" style="margin-top: 40vh;">
+  <view class="margin-top bg-white padding radius-lg">
+    <view class="text-sm text-black">开盲盒说明：</view>
+    <view class="text-gray text-sm padding-top-xs">点击图片将会进行翻转，随后会获得您的随机优惠券</view>
+    <view class="text-gray text-sm padding-top-xs">PS: 该优惠券可用于全场任意餐食及饮品的消费</view>
+  </view>
+</view>
+
+<view class="cu-modal {{ showGotModel ? 'show' : '' }}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">优惠券领取成功</view>
+      <view class="action" bindtap="hideModal">
+        <!-- <text class="cuIcon-close text-red"></text> -->
+      </view>
+    </view>
+    <view class="padding-xl text-left">
+      <view>恭喜发财！</view>
+      <view>您的优惠券已经收入囊中，</view>
+      <view>快去把它变成真金白银吧！</view>
+    </view>
+    <view class="cu-bar bg-white justify-end">
+      <view class="action">
+        <button class="cu-btn line-blue text-blue" bindtap="hideModal">取消</button>
+        <button class="cu-btn bg-blue margin-left" bindtap="gotoViewCoupons">前往查看</button>
+      </view>
+    </view>
+  </view>
+</view>

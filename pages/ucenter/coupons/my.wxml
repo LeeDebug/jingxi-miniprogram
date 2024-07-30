@@ -23,7 +23,7 @@
   <view class="coupons-list-content">
 
     <view wx:for="{{couponsList}}" wx:key="id" class="coupons-show-item">
-      <coupons-show coupon="{{ item }}" bindgetCoupon="getCoupon"></coupons-show>
+      <coupons-show coupon="{{ item }}" binduseCoupon="useCoupon"></coupons-show>
     </view>
 
     <view wx:if="{{ couponsList.length == 0}}" class="list-empty">

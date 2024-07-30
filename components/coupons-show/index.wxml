@@ -1,4 +1,4 @@
-<view>
+<view class="{{ coupon.redeemed == 1 ? 'is_redeemed' : '' }}">
 
   <!-- 上方 优惠券卡片 -->
   <view class="coupon-card">
@@ -48,7 +48,7 @@
     </view>
 
     <view wx:if="{{ coupon.canUse }}" class="coupon-operate">
-      <button class="operate-btn" bindtap="handleGetCoupon">
+      <button class="operate-btn" bindtap="handleUseCoupon">
         立即使用
       </button>
       <view class="operate-tag">
