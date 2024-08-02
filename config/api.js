@@ -3,11 +3,12 @@
  */
 // const ApiRoot = 'http://localhost:8380';
 // const ApiRoot = 'http://127.0.0.1:8380';
-const ApiRoot = 'http://192.168.1.3:8380';
+// const ApiRoot = 'http://192.168.1.3:8380';
 /**
  * Tencent 服务器
  */
-// const ApiRoot = 'http://82.156.25.59:8380';
+// const ApiRoot = 'http://82.156.25.59:8380'; // 腾讯服务器（8月20日即将过期）
+const ApiRoot = 'http://192.144.217.153:8380'; // 腾讯服务器，新的 Docker 实例服务器
 
 const ApiRootUrl = ApiRoot + '/api/'
 

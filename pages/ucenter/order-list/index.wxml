@@ -1,58 +1,59 @@
 <view class="container">
-	<view class="tab-nav">
-		<view class="tab {{ showType == 0 ? 'active' : ''}}" bindtap="switchTab" data-index='0'>全部
+  <view class="tab-nav">
+    <view class="tab {{ showType == 0 ? 'active' : ''}}" bindtap="switchTab" data-index='0'>全部
     </view>
-		<view class="tab {{ showType == 1 ? 'active' : ''}}" bindtap="switchTab" data-index='1'>
-			<view wx:if="{{status.toPay > 0 }}" class='list-num'>{{status.toPay}}</view>待付款
-		</view>
-		<view class="tab {{ showType == 2 ? 'active' : ''}}" bindtap="switchTab" data-index='2'>
-			<view wx:if="{{status.toDelivery > 0 }}" class='list-num'>{{status.toDelivery}}</view>配送中
+    <view class="tab {{ showType == 1 ? 'active' : ''}}" bindtap="switchTab" data-index='1'>
+      <view wx:if="{{status.toPay > 0 }}" class='list-num'>{{status.toPay}}</view>待付款
+    </view>
+    <view class="tab {{ showType == 2 ? 'active' : ''}}" bindtap="switchTab" data-index='2'>
+      <view wx:if="{{status.toDelivery > 0 }}" class='list-num'>{{status.toDelivery}}</view>配送中
       <!-- 待发货 -->
-		</view>
-		<view class="tab {{ showType == 3 ? 'active' : ''}}" bindtap="switchTab" data-index='3'>
-			<view wx:if="{{status.toReceive > 0 }}" class='list-num'>{{status.toReceive}}</view>已完成
+    </view>
+    <view class="tab {{ showType == 3 ? 'active' : ''}}" bindtap="switchTab" data-index='3'>
+      <view wx:if="{{status.toReceive > 0 }}" class='list-num'>{{status.toReceive}}</view>已完成
       <!-- 待收货 -->
-		</view>
-	</view>
+    </view>
+  </view>
 
   <!-- 没有订单时展示的空页面 -->
-	<view class="no-order {{hasOrder == 1? 'show':'' }}" hidden="" wx:if="{{orderList.length <= 0}}">
-		<!-- wx:if="{{orderList.length <= 0}}" -->
-		<image src="/images/icon/no-order.png" class="no-order-img"></image>
-		<view class="text">您目前没有相关订单</view>
-		<view class="to-index-btn" bindtap="toIndexPage">
-			马上去逛逛
-		</view>
-	</view>
+  <view wx:if="{{orderList.length <= 0}}" class="no-order {{hasOrder == 1? 'show':'' }}" hidden="">
+    <!-- wx:if="{{orderList.length <= 0}}" -->
+    <image src="/images/icon/no-order.png" class="no-order-img"></image>
+    <view class="text">您目前没有相关订单</view>
+    <view class="to-index-btn" bindtap="toIndexPage">
+      马上去逛逛
+    </view>
+  </view>
 
   <!-- 有订单时的列表页面 -->
-	<view wx:else class="wrap">
-		<!-- 待付款 -->
-		<view bindtap='toOrderDetails' class='order-list-wrap' data-id="{{item.id}}" wx:for="{{orderList}}" wx:key="id">
+  <view wx:else class="wrap">
+
+    <!-- 订单列表 -->
+    <view bindtap='toOrderDetails' class='order-list-wrap' data-id="{{item.id}}" wx:for="{{orderList}}" wx:key="id">
+
       <!-- 展示订单基本信息 -->
-			<view class='list-top-wrap'>
-				<view class='time' catchtap="gotoDianCanPage">
+      <view class='list-top-wrap'>
+        <view class='time' catchtap="gotoDianCanPage">
           <text class="cu-tag round bg-blue sm margin-right-xs" style="margin-top: -6rpx;">配送</text>
           鲸禧控卡（广告产业园店）
           <text class="cuIcon-right"></text>
         </view>
-				<view class='status'>
-					<view class="pay-status" wx:if="{{item.offline_pay}}">线下支付订单</view>
-					<view class="text-blue text-bold text-df">{{item.order_status_text}}</view>
-				</view>
-			</view>
+        <view class='status'>
+          <view class="pay-status" wx:if="{{item.offline_pay}}">线下支付订单</view>
+          <view class="text-blue text-bold text-df">{{item.order_status_text}}</view>
+        </view>
+      </view>
+
       <!-- 展示商品列表 -->
-			<view class="goods-list">
-				<view class="a-goods">
+      <view class="goods-list">
+        <view class="a-goods">
 
-
-        
-          <view class="cu-good-act margin-sm bg-blue light" style="width: 100%;">
+          <!-- <view class="cu-good-act margin-sm bg-blue light" style="width: 100%;">
             <view class="cu-good-t-box bg-transparent">
               <view class="cu-good-title">精选商品</view>
             </view>
-            <view class="cu-good-point-con {{d_num==1?'cu-good-wd1':d_num==2?'cu-good-wd2':''}}">
-              <swiper class="swiper-box" indicator-dots="{{false}}" autoplay="{{true}}" interval="{{1500}}" duration="{{1000}}" circular="true" display-multiple-items="{{d_num}}">
+            <view class="cu-good-point-con {{ item.goodsList.length == 1 ? 'cu-good-wd1' : item.goodsList.length == 2 ? 'cu-good-wd2' : '' }}">
+              <swiper class="swiper-box" indicator-dots="{{false}}" autoplay="{{false}}" interval="{{1500}}" duration="{{1000}}" display-multiple-items="{{ item.goodsList.length == 1 ? 1 : item.goodsList.length == 2 ? 2 : 3 }}">
                 <swiper-item wx:for="{{item.goodsList}}" wx:for-item="gitem" wx:key="index">
                   <view class="cu-good-point-flex-w">
                     <image class="cu-good-point-img radius-lg" src="{{gitem.list_pic_url}}"></image>
@@ -61,37 +62,41 @@
                 </swiper-item>
               </swiper>
             </view>
+          </view> -->
+
+          <view class="img-box">
+            <view class='image-wrap' wx:for="{{item.goodsList}}" wx:key="id" wx:for-item="gitem" wx:if="{{index<4}}">
+              <image src="{{gitem.list_pic_url}}" class="goods-image" />
+            </view>
           </view>
 
+          <view class='goods-sum'>
+            <view class="text">共{{item.goodsCount}}件</view>
+            <view class="arrow"></view>
+          </view>
+        </view>
+      </view>
 
-					<!-- <view class="img-box">
-						<view class='image-wrap' wx:for="{{item.goodsList}}" wx:key="id" wx:for-item="gitem" wx:if="{{index<4}}">
-							<image src="{{gitem.list_pic_url}}" class="goods-image" />
-						</view>
-					</view> -->
-					<view class='goods-sum'>
-						<view class="text">共{{item.goodsCount}}件</view>
-						<view class="arrow"></view>
-					</view>
-				</view>
-			</view>
       <!-- 展示订单时间和总价 -->
-			<view class="order-price-wrap flex justify-between padding-lr-sm">
+      <view class="order-price-wrap flex justify-between padding-lr-sm">
         <view class="text-sm">{{item.add_time}}</view>
-				<view class='order-price'>
-					<view class='price-label'>总价：¥</view>
-					<view class='price-sum'>{{item.actual_price}}</view>
-				  <view class='trans'>（含运费 ¥{{item.freight_price}})</view>
-				</view>
-			</view>
-			<!-- 待付款 -->
-			<view class="order-edit" wx:if="{{item.handleOption.cancel && item.handleOption.pay}}">
-				<view catchtap='payOrder' class="edit-btn bg-blue" data-orderid="{{item.id}}">继续支付</view>
-			</view>
-			<view wx:else class="order-edit">
-				<view class="dele-btn">查看详情</view>
-			</view>
-		</view>
-		<view wx:if="{{showTips}}" class="no-more-goods">没有更多订单啦</view>
-	</view>
+        <view class='order-price'>
+          <view class='price-label'>总价：¥</view>
+          <view class='price-sum'>{{item.actual_price}}</view>
+          <view class='trans'>（含运费 ¥{{item.freight_price}})</view>
+        </view>
+      </view>
+
+      <!-- 待付款 -->
+      <view class="order-edit" wx:if="{{item.handleOption.cancel && item.handleOption.pay}}">
+        <view catchtap='payOrder' class="edit-btn bg-blue" data-orderid="{{item.id}}">继续支付</view>
+      </view>
+      <view wx:else class="order-edit">
+        <view class="dele-btn">查看详情</view>
+      </view>
+
+    </view>
+
+    <view wx:if="{{showTips}}" class="no-more-goods">没有更多订单啦</view>
+  </view>
 </view>
