@@ -2,8 +2,8 @@
  * 本地服务器
  */
 // const ApiRoot = 'http://localhost:8380';
-// const ApiRoot = 'http://127.0.0.1:8380';
-const ApiRoot = 'http://192.168.1.3:8380';
+const ApiRoot = 'http://127.0.0.1:8380';
+// const ApiRoot = 'http://192.168.1.3:8380';
 /**
  * Tencent 服务器
  */
